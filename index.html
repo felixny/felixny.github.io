@@ -1,181 +1,188 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Game Trailer and Documentation</title>
     <style>
-        * {
-          box-sizing: border-box;
-        }
-  
-        body {
-          font-family: Arial, sans-serif;
-          background-color: #F5F5F5;
-          margin: 0;
-          padding: 0;
-        }
-  
-        header {
-          background-color: #6c757d;
-          color: white;
-          padding: 20px;
-          text-align: center;
-        }
-  
-        h1 {
-          margin: 0;
-        }
-  
-        main {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 50px;
-        }
-  
-        section {
-          margin-bottom: 60px;
-        }
-  
-        h2 {
-          font-size: 36px;
-          font-weight: bold;
-          margin-bottom: 20px;
-          text-align: center;
-          color: #6c757d;
-        }
-  
-        video {
-          display: block;
-          margin: 0 auto;
-          width: 80%;
-          max-width: 800px;
-          margin-bottom: 40px;
-          border-radius: 10px;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-  
-        .screenshot {
-          display: inline-block;
-          width: calc(33.33% - 20px);
-          margin: 0 10px 40px;
-          vertical-align: top;
-        }
-  
-        .screenshot img {
-          display: block;
-          width: 100%;
-          height: auto;
-          border-radius: 10px;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-  
-        .doc-link {
-          display: inline-block;
-          background-color: #6c757d;
-          color: white;
-          padding: 10px 20px;
-          text-decoration: none;
-          border-radius: 5px;
-          margin-bottom: 20px;
-          transition: background-color 0.3s ease;
-        }
-  
-        .doc-link:hover {
-          background-color: #007bff;
-        }
-  
-        .engine-arch {
-          display: block;
-          margin: 0 auto;
-          width: 80%;
-          max-width: 800px;
-          margin-bottom: 40px;
-          border-radius: 10px;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-  
-        .dl-link {
-          display: inline-block;
-          background-color: #6c757d;
-          color: white;
-          padding: 10px 20px;
-          text-decoration: none;
-          border-radius: 5px;
-          margin-bottom: 20px;
-          transition: background-color 0.3s ease;
-        }
-  
-        .dl-link:hover {
-          background-color: #007bff;
-        }
-  
-        .post-mortem {
-          margin-bottom: 60px;
-        }
-  
-        .post-mortem h2 {
-          font-size: 36px;
-          font-weight: bold;
-          margin-bottom: 30px;
-          text-align: center;
-          color: #6c757d;
-        }
-  
-        .post-mortem p {
-          line-height: 1.5;
-          font-size: 18px;
-          margin-bottom: 20px;
-        }
-      </style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #6c757d;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 50px;
+      }
+
+      section {
+        margin-bottom: 60px;
+      }
+
+      h2 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #6c757d;
+      }
+
+      video {
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+        max-width: 800px;
+        margin-bottom: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .screenshot img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .doc-link {
+        display: inline-block;
+        background-color: #6c757d;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      .doc-link:hover {
+        background-color: #007bff;
+      }
+
+      .engine-arch {
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+        max-width: 800px;
+        margin-bottom: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .dl-link {
+        display: inline-block;
+        background-color: #6c757d;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      .dl-link:hover {
+        background-color: #007bff;
+      }
+
+      .post-mortem {
+        margin-bottom: 60px;
+      }
+
+      .post-mortem h2 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #6c757d;
+      }
+
+      .post-mortem p {
+        line-height: 1.5;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .screenshot img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    </style>
   </head>
   <body>
     <header>
       <h1>Game Trailer and Documentation</h1>
     </header>
-    
+
     <main>
       <section>
         <h2>Trailer</h2>
         <video controls>
-          <source src="game-trailer.mp4" type="video/mp4">
+          <source src="game-trailer.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </section>
-      
+
       <section>
         <h2>Screenshots</h2>
         <div class="screenshot">
-          <img src="screenshot1.png" alt="Screenshot 1">
+          <img src="images/cs5850pic1.png" alt="Screenshot 1" />
         </div>
         <div class="screenshot">
-          <img src="screenshot2.png" alt="Screenshot 2">
+          <img src="images/cs5850pic2.png" alt="Screenshot 2" />
         </div>
         <div class="screenshot">
-          <img src="screenshot3.png" alt="Screenshot 3">
+          <img src="images/cs5850pic3.png" alt="Screenshot 3" />
         </div>
       </section>
-      
+
       <section>
         <h2>Documentation</h2>
-        <a class="doc-link"
-        href="path/to/documentation">Documentation</a>
+        <a class="doc-link" href="path/to/documentation">Documentation</a>
       </section>
-      
+
       <section>
         <h2>Engine Architecture</h2>
-        <img class="engine-arch" src="engine-architecture.png" alt="Engine Architecture">
+        <img
+          class="engine-arch"
+          src="engine-architecture.png"
+          alt="Engine Architecture"
+        />
       </section>
-      
+
       <section>
         <h2>Download Link</h2>
         <a class="dl-link" href="path/to/binary">Download</a>
       </section>
-      
+
       <section class="post-mortem">
         <h2>Post Mortem</h2>
-        <p>A few paragraphs describing how you would take the project further, what went well, and what you would change if given another month on the project.</p>
+        <p>
+          A few paragraphs describing how you would take the project further,
+          what went well, and what you would change if given another month on
+          the project.
+        </p>
       </section>
     </main>
   </body>
 </html>
-
