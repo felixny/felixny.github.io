@@ -137,8 +137,14 @@
     <main>
       <section>
         <h2>Trailer</h2>
-        <div style="display: flex; justify-content: center;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/iQ6PUisJjdI" frameborder="0" allowfullscreen></iframe>
+        <div style="display: flex; justify-content: center">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/iQ6PUisJjdI"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
         </div>
       </section>
 
@@ -172,6 +178,51 @@
       <section>
         <h2>Download Link</h2>
         <a class="dl-link" href="binary/Engine.zip">Download</a>
+        <p>
+          Before playing the game, please make sure to follow the installation
+          instructions below (for macOS configuration):
+        </p>
+        <ol>
+          <li>
+            Make sure Homebrew is installed on your machine. If not, you can
+            install it from the official Homebrew website.
+          </li>
+          <li>
+            Install dependencies by running the following commands in the
+            terminal:
+          </li>
+          <ul>
+            <li><code>brew install sdl2 sdl2_ttf</code></li>
+            <li><code>brew install python3</code></li>
+          </ul>
+          <li>Install Pybind11 using pip:</li>
+          <ul>
+            <li><code>pip install pybind11</code></li>
+          </ul>
+          <li>
+            Check your Python version and run the following command to build the
+            game engine:
+          </li>
+          <ul>
+            <li><code>python3.9 macbuild.py</code></li>
+          </ul>
+          <li>
+            Add the SDL2 framework to the
+            <code>/Library/Frameworks</code> folder:
+          </li>
+          <ul>
+            <li>Download the SDL2 framework from the official SDL website.</li>
+            <li>
+              Extract the <code>.zip</code> file and copy the
+              <code>SDL2.framework</code> folder to the
+              <code>/Library/Frameworks</code> folder on your machine.
+            </li>
+          </ul>
+          <li>Finally, run the game with the following command:</li>
+          <ul>
+            <li><code>python3.9 test.py -m ./mygameengine.so</code></li>
+          </ul>
+        </ol>
       </section>
 
       <section class="post-mortem">
