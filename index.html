@@ -16,7 +16,7 @@
       }
 
       header {
-        background-color: #6c757d;
+        background-color: #007bff;
         color: white;
         padding: 20px;
         text-align: center;
@@ -41,7 +41,7 @@
         font-weight: bold;
         margin-bottom: 20px;
         text-align: center;
-        color: #6c757d;
+        color: #007bff;
       }
 
       video {
@@ -64,7 +64,7 @@
 
       .doc-link {
         display: inline-block;
-        background-color: #6c757d;
+        background-color: #007bff;
         color: white;
         padding: 10px 20px;
         text-decoration: none;
@@ -74,7 +74,7 @@
       }
 
       .doc-link:hover {
-        background-color: #007bff;
+        background-color: #0056b3;
       }
 
       .engine-arch {
@@ -89,7 +89,7 @@
 
       .dl-link {
         display: inline-block;
-        background-color: #6c757d;
+        background-color: #007bff;
         color: white;
         padding: 10px 20px;
         text-decoration: none;
@@ -99,7 +99,7 @@
       }
 
       .dl-link:hover {
-        background-color: #007bff;
+        background-color: #0056b3;
       }
 
       .post-mortem {
@@ -111,7 +111,7 @@
         font-weight: bold;
         margin-bottom: 30px;
         text-align: center;
-        color: #6c757d;
+        color: #007bff;
       }
 
       .post-mortem p {
@@ -228,11 +228,44 @@
       <section class="post-mortem">
         <h2>Post Mortem</h2>
         <p>
-          As a team, we were satisfied to see our objective of building a game engine realized in the final product we were able to produce. Nonetheless, finally having a playable version of our work spurs us to think of how would could expand/improve it as we look ahead. This is applicable at the low-level as well as the high-level.
-
-At the low-level, we are happy to see the mechanic of fire burning through materials at varying speeds and intensities depending on the medium (e.g. bushes catch on fire quicker than wood and will burn faster). The ability to put these fires out was also a touch that keeps the world "chemistry" coherent. In the future, we'd want to expand by progressively adding more materials. We would think about what different inputs might look like and what kind of output they would produce. For example, having a weather system could add possibilities, such as water freezing into ice at a certain temperature. Wind would be another complicated but interesting endeavor. Additionally, while writing all of the element classes in Python was fairly straightforward, now would be a great time to take a breath and abstract these element classes further so that the engine is more systemic and different elements are more independent. For example, instead of a fire checking for would around it and having a timer for spreading, it would be wiser to have it output a very hot temperature and have wood programmed so that it burns if it detects a certain temperature. In the end, each element would be completely unaware as to the other's presence, making it much easier to add more elements into the engine and therefore expand the possibility space.
-
-At the high-level, our C++ code could also do with some extensive revision and pruning. With the project deadline to meet, we resorted largely to mashing together various past projects from this course. While this worked for our purposes, the ideal solution would be far more elegant and sophisticated. We would want to make sure that the different parts are working in harmony and as efficiently as possible. We would likely see our game be more responsive as a result. Furthermore, the UI of our game evolved. While we put the element inventory on-screen in place fairly early, the project went through different phases for how the player actually placed elements on screen. It was originally point-and-click, but once we added the player towards the end this changed. As a result, we would likely find areas of our C++ input code that could be removed or simplified.
+          As a team, we were satisfied to see our objective of building a game
+          engine realized in the final product we were able to produce.
+          Nonetheless, finally having a playable version of our work spurs us to
+          think of how would could expand/improve it as we look ahead. This is
+          applicable at the low-level as well as the high-level. At the
+          low-level, we are happy to see the mechanic of fire burning through
+          materials at varying speeds and intensities depending on the medium
+          (e.g. bushes catch on fire quicker than wood and will burn faster).
+          The ability to put these fires out was also a touch that keeps the
+          world "chemistry" coherent. In the future, we'd want to expand by
+          progressively adding more materials. We would think about what
+          different inputs might look like and what kind of output they would
+          produce. For example, having a weather system could add possibilities,
+          such as water freezing into ice at a certain temperature. Wind would
+          be another complicated but interesting endeavor. Additionally, while
+          writing all of the element classes in Python was fairly
+          straightforward, now would be a great time to take a breath and
+          abstract these element classes further so that the engine is more
+          systemic and different elements are more independent. For example,
+          instead of a fire checking for would around it and having a timer for
+          spreading, it would be wiser to have it output a very hot temperature
+          and have wood programmed so that it burns if it detects a certain
+          temperature. In the end, each element would be completely unaware as
+          to the other's presence, making it much easier to add more elements
+          into the engine and therefore expand the possibility space. At the
+          high-level, our C++ code could also do with some extensive revision
+          and pruning. With the project deadline to meet, we resorted largely to
+          mashing together various past projects from this course. While this
+          worked for our purposes, the ideal solution would be far more elegant
+          and sophisticated. We would want to make sure that the different parts
+          are working in harmony and as efficiently as possible. We would likely
+          see our game be more responsive as a result. Furthermore, the UI of
+          our game evolved. While we put the element inventory on-screen in
+          place fairly early, the project went through different phases for how
+          the player actually placed elements on screen. It was originally
+          point-and-click, but once we added the player towards the end this
+          changed. As a result, we would likely find areas of our C++ input code
+          that could be removed or simplified.
         </p>
       </section>
     </main>
