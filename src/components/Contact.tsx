@@ -51,32 +51,25 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Using Formspree to send the email
-      const response = await fetch('https://formspree.io/f/xpwgkqkz', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+      // Create mailto link as fallback
+      const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
+      
+      // Open email client
+      window.open(`mailto:felixynx@gmail.com?subject=${subject}&body=${body}`);
+      
+      toast({
+        title: "Email client opened!",
+        description: "Your default email client should open with a pre-filled message. Please send it to complete the contact.",
       });
-
-      if (response.ok) {
-        toast({
-          title: "Message sent!",
-          description: "Thank you for reaching out. I'll get back to you soon.",
-        });
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        throw new Error('Failed to send message');
-      }
+      
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       toast({
         title: "Error",
-        description: "Sorry, there was an error sending your message. Please try again.",
+        description: "Sorry, there was an error. Please email felixynx@gmail.com directly.",
         variant: "destructive",
       });
     }

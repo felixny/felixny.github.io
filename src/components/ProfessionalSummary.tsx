@@ -129,9 +129,9 @@ export default function ProfessionalSummary() {
                 </div>
               </div>
               <Button className="w-full mt-6" asChild>
-                <a href="mailto:felixynx@gmail.com?subject=Resume Request&body=Hi Felix, I'd like to request a copy of your resume." target="_blank" rel="noopener noreferrer">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                   <Download className="h-4 w-4 mr-2" />
-                  Request Resume
+                  Download Resume
                 </a>
               </Button>
             </Card>
