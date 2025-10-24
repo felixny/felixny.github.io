@@ -1,7 +1,7 @@
 # Hi there, I'm Felix Nampanya! 👋
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-felixny.github.io-blue?style=for-the-badge&logo=github)](https://felixny.github.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-felixny-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/felixny)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-felixny-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/felix-n-6790b2ba)
 [![Email](https://img.shields.io/badge/Email-felixynx@gmail.com-red?style=for-the-badge&logo=gmail)](mailto:felixynx@gmail.com)
 
 ## 🚀 About Me
@@ -64,10 +64,9 @@ Real-time collaborative music sessions using Kotlin, Firebase backend, and Graph
 
 ## 📈 GitHub Stats
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=felixny&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=felixny&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
-</div>
+![GitHub Streak](https://streak-stats.demolab.com?user=felix-ny&theme=tokyonight&hide_border=true)
+
+![Felix's Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=felix-ny&theme=tokyo-night&hide_border=true)
 
 ## 🏆 Achievements
 
@@ -89,7 +88,7 @@ Real-time collaborative music sessions using Kotlin, Firebase backend, and Graph
 I'm always interested in discussing new opportunities, collaborating on interesting projects, or just having a chat about technology!
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-Visit_My_Site-blue?style=for-the-badge&logo=github)](https://felixny.github.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/felixny)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/felix-n-6790b2ba)
 [![Email](https://img.shields.io/badge/Email-Get_in_Touch-red?style=for-the-badge&logo=gmail)](mailto:felixynx@gmail.com)
 
 ---
