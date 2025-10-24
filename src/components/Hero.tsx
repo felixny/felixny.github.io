@@ -19,8 +19,11 @@ export default function Hero() {
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-            Software Engineer
+            Felix Nampanya
           </h1>
+          <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground mb-6">
+            Software Engineer
+          </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Building elegant solutions with modern technologies. Specialized in
             Android, Frontend, and Backend development.

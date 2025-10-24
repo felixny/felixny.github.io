@@ -117,15 +117,11 @@ export default function ProfessionalSummary() {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-sm">your.email@example.com</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-sm">+1 (555) 123-4567</span>
+                  <span className="text-sm">felixynx@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-sm">City, Country</span>
+                  <span className="text-sm">Boston, MA</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Calendar className="h-5 w-5 text-muted-foreground" />
@@ -133,9 +129,9 @@ export default function ProfessionalSummary() {
                 </div>
               </div>
               <Button className="w-full mt-6" asChild>
-                <a href="/resume.pdf" download>
+                <a href="mailto:felixynx@gmail.com?subject=Resume Request&body=Hi Felix, I'd like to request a copy of your resume." target="_blank" rel="noopener noreferrer">
                   <Download className="h-4 w-4 mr-2" />
-                  Download Resume
+                  Request Resume
                 </a>
               </Button>
             </Card>
