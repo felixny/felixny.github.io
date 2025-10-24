@@ -28,16 +28,16 @@ const skillCategories: SkillCategory[] = [
         projects: ["JukeBot", "Ahold Delhaize Apps"]
       },
       { 
+        name: "Jetpack Compose", 
+        level: 90, 
+        description: "Modern declarative UI toolkit for building native Android interfaces",
+        projects: ["JukeBot", "Modern Android UI Development"]
+      },
+      { 
         name: "Android SDK", 
         level: 92, 
         description: "Core Android development framework and APIs",
         projects: ["JukeBot", "Professional Android Apps"]
-      },
-      { 
-        name: "Room Database", 
-        level: 88, 
-        description: "Local database management for Android apps",
-        projects: ["JukeBot", "Data-driven Android Apps"]
       },
       { 
         name: "Retrofit", 
@@ -46,22 +46,28 @@ const skillCategories: SkillCategory[] = [
         projects: ["JukeBot", "API Integration Projects"]
       },
       { 
-        name: "Dagger", 
+        name: "Room Database", 
+        level: 88, 
+        description: "Local database management for Android apps",
+        projects: ["JukeBot", "Data-driven Android Apps"]
+      },
+      { 
+        name: "Hilt", 
         level: 85, 
-        description: "Dependency injection framework for Android",
+        description: "Modern dependency injection framework built on Dagger",
         projects: ["JukeBot", "Enterprise Android Apps"]
       },
       { 
-        name: "Jetpack Compose", 
-        level: 82, 
-        description: "Modern declarative UI toolkit for Android",
-        projects: ["Modern Android UI Development"]
+        name: "Coroutines", 
+        level: 88, 
+        description: "Asynchronous programming with Kotlin coroutines",
+        projects: ["JukeBot", "Modern Android Development"]
       },
       { 
-        name: "RxJava", 
-        level: 80, 
-        description: "Reactive programming library for Android",
-        projects: ["Asynchronous Android Development"]
+        name: "Flow", 
+        level: 82, 
+        description: "Cold asynchronous data streams for reactive programming",
+        projects: ["JukeBot", "Real-time Data Streaming"]
       },
     ],
   },
