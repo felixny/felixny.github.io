@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Github, Linkedin, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
@@ -49,6 +49,44 @@ export default function Hero() {
             className="text-base px-8"
           >
             View Projects
+          </Button>
+        </div>
+
+        {/* Social Media Links */}
+        <div className="flex justify-center gap-4 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-400">
+          <Button
+            variant="ghost"
+            size="lg"
+            asChild
+            className="group hover:bg-primary/10 transition-colors"
+          >
+            <a
+              href="https://github.com/felixny"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
+              <Github className="h-5 w-5" />
+              GitHub
+              <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </Button>
+          <Button
+            variant="ghost"
+            size="lg"
+            asChild
+            className="group hover:bg-primary/10 transition-colors"
+          >
+            <a
+              href="https://linkedin.com/in/felixny"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
+              <Linkedin className="h-5 w-5" />
+              LinkedIn
+              <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100 transition-opacity" />
+            </a>
           </Button>
         </div>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Send } from "lucide-react";
+import { Mail, Send, Github, Linkedin, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -98,10 +98,48 @@ export default function Contact() {
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
             Get in Touch
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground mb-8">
             Have a project in mind? Let's work together to bring your ideas to
             life.
           </p>
+          
+          {/* Social Media Links */}
+          <div className="flex justify-center gap-6 mb-8">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="group hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              <a
+                href="https://github.com/felixny"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Github className="h-5 w-5" />
+                GitHub
+                <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100 transition-opacity" />
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="group hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              <a
+                href="https://linkedin.com/in/felixny"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Linkedin className="h-5 w-5" />
+                LinkedIn
+                <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100 transition-opacity" />
+              </a>
+            </Button>
+          </div>
         </div>
 
         <Card className="p-8">
