@@ -1,0 +1,77 @@
+{
+  "navigation": {
+    "home": "ホーム",
+    "about": "概要",
+    "projects": "プロジェクト",
+    "skills": "スキル",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "name": "フェリックス・ナンパンヤ",
+    "title": "ソフトウェアエンジニア",
+    "description": "モダンな技術でエレガントなソリューションを構築。Android、フロントエンド、バックエンド開発を専門としています。",
+    "getInTouch": "お問い合わせ",
+    "viewProjects": "プロジェクトを見る"
+  },
+  "about": {
+    "title": "私について",
+    "description": "フルスタック開発で4年以上の経験を持つ情熱的なソフトウェアエンジニアです。革新的なソリューションを作り、コードを通じてアイデアを実現することが大好きです。",
+    "experience": "経験",
+    "education": "学歴",
+    "contactInfo": "連絡先情報",
+    "email": "felixynx@gmail.com",
+    "location": "ボストン、マサチューセッツ州",
+    "availability": "機会をお待ちしています",
+    "linkedin": "LinkedInプロフィール",
+    "github": "GitHubプロフィール",
+    "downloadResume": "履歴書をダウンロード"
+  },
+  "projects": {
+    "title": "注目のプロジェクト",
+    "subtitle": "私のスキルと開発への情熱を示す最近のプロジェクトをご紹介します。",
+    "travelApp": {
+      "title": "旅行バケットリスト＆情報ハブ",
+      "description": "旅行バケットリストを管理するためのフルスタックWebアプリケーション。目的地の追跡、写真管理、旅行計画機能を備えています。モダンなグラスモーフィズムUI、AWS S3統合、外部API統合を特徴とします。",
+      "techStack": "React, TypeScript, Node.js, Express, Supabase, AWS S3, Tailwind CSS"
+    },
+    "cryptoTracker": {
+      "title": "暗号通貨トラッカー",
+      "description": "暗号通貨の価格をリアルタイムで監視し、価格が事前定義された閾値を超えたときにメールアラートを送信し、トレンドグラフを生成するPythonアプリケーション。",
+      "techStack": "Python, Pandas, Matplotlib, Requests, SMTP, CoinGecko API"
+    },
+    "jukeBot": {
+      "title": "JukeBot音楽プレーヤー",
+      "description": "Kotlin、Firebaseバックエンド、GraphQL APIを使用したリアルタイム協調音楽セッション。同期されたグループプレイリストを可能にし、クロスプラットフォーム制御のためのReact Webコンパニオンアプリを備えています。",
+      "techStack": "Android, Kotlin, Firebase, GraphQL, React, リアルタイム"
+    },
+    "viewProject": "プロジェクトを見る",
+    "viewCode": "コードを見る"
+  },
+  "skills": {
+    "title": "スキル＆技術",
+    "subtitle": "私が使用する技術とツールの包括的な概要。",
+    "mobile": "モバイル開発",
+    "frontend": "フロントエンド開発",
+    "backend": "バックエンド開発",
+    "databases": "データベース＆クラウド",
+    "tools": "ツール＆その他"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "プロジェクトをお考えですか？一緒にアイデアを実現しましょう。",
+    "name": "お名前",
+    "email": "メールアドレス",
+    "message": "メッセージ",
+    "sendMessage": "メッセージを送信",
+    "sending": "送信中...",
+    "nameRequired": "お名前は必須です",
+    "emailRequired": "メールアドレスは必須です",
+    "emailInvalid": "有効なメールアドレスを入力してください",
+    "messageRequired": "メッセージは必須です",
+    "messageMinLength": "メッセージは10文字以上である必要があります",
+    "emailClientOpened": "メールクライアントが開きました！",
+    "emailClientDescription": "デフォルトのメールクライアントが事前入力されたメッセージで開くはずです。完了するために送信してください。",
+    "error": "エラー",
+    "errorDescription": "申し訳ありませんが、エラーが発生しました。felixynx@gmail.comに直接メールしてください。"
+  }
+}

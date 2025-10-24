@@ -3,10 +3,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslations } from "@/hooks/useTranslations";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslations();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,11 +28,11 @@ export default function Navigation() {
   };
 
   const navItems = [
-    { label: "Home", id: "hero" },
-    { label: "About", id: "professional-summary" },
-    { label: "Projects", id: "projects" },
-    { label: "Skills", id: "skills" },
-    { label: "Contact", id: "contact" },
+    { label: t("navigation.home"), id: "hero" },
+    { label: t("navigation.about"), id: "professional-summary" },
+    { label: t("navigation.projects"), id: "projects" },
+    { label: t("navigation.skills"), id: "skills" },
+    { label: t("navigation.contact"), id: "contact" },
   ];
 
   return (
@@ -60,6 +63,7 @@ export default function Navigation() {
                 {item.label}
               </button>
             ))}
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -89,6 +93,9 @@ export default function Navigation() {
                 {item.label}
               </button>
             ))}
+            <div className="px-3 py-2">
+              <LanguageSwitcher />
+            </div>
           </div>
         )}
       </div>

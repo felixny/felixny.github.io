@@ -1,0 +1,77 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "name": "Felix Nampanya",
+    "title": "Software Engineer",
+    "description": "Building elegant solutions with modern technologies. Specialized in Android, Frontend, and Backend development.",
+    "getInTouch": "Get in Touch",
+    "viewProjects": "View Projects"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Passionate software engineer with 4+ years of experience in full-stack development. I love creating innovative solutions and bringing ideas to life through code.",
+    "experience": "Experience",
+    "education": "Education",
+    "contactInfo": "Contact Information",
+    "email": "felixynx@gmail.com",
+    "location": "Boston, MA",
+    "availability": "Available for opportunities",
+    "linkedin": "LinkedIn Profile",
+    "github": "GitHub Profile",
+    "downloadResume": "Download Resume"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Here are some of my recent projects that showcase my skills and passion for development.",
+    "travelApp": {
+      "title": "Travel Bucket List & Info Hub",
+      "description": "A full-stack web application for managing your travel bucket list with destination tracking, photo management, and travel planning features. Features modern glass morphism UI, AWS S3 integration, and external API integrations.",
+      "techStack": "React, TypeScript, Node.js, Express, Supabase, AWS S3, Tailwind CSS"
+    },
+    "cryptoTracker": {
+      "title": "Crypto Tracker",
+      "description": "A Python application that monitors cryptocurrency prices in real-time, sends email alerts when prices cross predefined thresholds, and generates trend graphs with historical data storage.",
+      "techStack": "Python, Pandas, Matplotlib, Requests, SMTP, CoinGecko API"
+    },
+    "jukeBot": {
+      "title": "JukeBot Music Player",
+      "description": "Real-time collaborative music sessions using Kotlin, Firebase backend, and GraphQL APIs, enabling synchronized group playlists. Features a React web companion app for cross-platform control and playback.",
+      "techStack": "Android, Kotlin, Firebase, GraphQL, React, Real-time"
+    },
+    "viewProject": "View Project",
+    "viewCode": "View Code"
+  },
+  "skills": {
+    "title": "Skills & Technologies",
+    "subtitle": "A comprehensive overview of the technologies and tools I work with.",
+    "mobile": "Mobile Development",
+    "frontend": "Frontend Development",
+    "backend": "Backend Development",
+    "databases": "Databases & Cloud",
+    "tools": "Tools & Others"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have a project in mind? Let's work together to bring your ideas to life.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "sendMessage": "Send Message",
+    "sending": "Sending...",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email",
+    "messageRequired": "Message is required",
+    "messageMinLength": "Message must be at least 10 characters",
+    "emailClientOpened": "Email client opened!",
+    "emailClientDescription": "Your default email client should open with a pre-filled message. Please send it to complete the contact.",
+    "error": "Error",
+    "errorDescription": "Sorry, there was an error. Please email felixynx@gmail.com directly."
+  }
+}
