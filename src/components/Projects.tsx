@@ -42,7 +42,7 @@ const projects: Project[] = [
     techStack: ["Android", "Kotlin", "Firebase", "GraphQL", "React", "Real-time"],
     githubUrl: "https://github.com/felixny/JukeBot",
     demoUrl: "https://github.com/felixny/JukeBot",
-    image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=800&q=80",
   },
 ];
 
