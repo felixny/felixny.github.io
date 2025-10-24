@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { PageViewCounter, SimpleAnalytics } from "@/components/Analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        {children}
-      </body>
-    </html>
+        <html lang="en" suppressHydrationWarning>
+          <body className={inter.className}>
+            {children}
+            <PageViewCounter />
+            <SimpleAnalytics />
+          </body>
+        </html>
   );
 }
