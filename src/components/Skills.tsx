@@ -46,9 +46,9 @@ const skillCategories: SkillCategory[] = [
         projects: ["Ahold Delhaize Apps", "JukeBot"]
       },
       { 
-        name: "Dagger", 
+        name: "Hilt", 
         level: 85, 
-        description: "Dependency injection framework for scalable enterprise Android applications",
+        description: "Modern dependency injection framework built on Dagger for enterprise apps",
         projects: ["Ahold Delhaize Apps", "JukeBot"]
       },
       { 
@@ -64,10 +64,10 @@ const skillCategories: SkillCategory[] = [
         projects: ["Ahold Delhaize Apps", "JukeBot"]
       },
       { 
-        name: "RxJava", 
-        level: 80, 
-        description: "Reactive programming library for Android, enterprise app experience",
-        projects: ["Ahold Delhaize Apps", "Asynchronous Android Development"]
+        name: "Flow", 
+        level: 82, 
+        description: "Cold asynchronous data streams for reactive programming in enterprise apps",
+        projects: ["Ahold Delhaize Apps", "JukeBot"]
       },
     ],
   },
