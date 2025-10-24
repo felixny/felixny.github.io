@@ -6,7 +6,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Felix Nampanya - Software Engineer Portfolio",
+  title: "Felix - Software Engineer Portfolio",
   description: "Software Engineer specializing in Android, Frontend, and Backend development. Experience with Kotlin, React, Node.js, and modern web technologies.",
 };
 

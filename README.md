@@ -1,4 +1,4 @@
-# Hi there, I'm Felix Nampanya! 👋
+# Hi there, I'm Felix! 👋
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-felixny.github.io-blue?style=for-the-badge&logo=github)](https://felixny.github.io)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-felixny-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/felix-n-6790b2ba)
