@@ -1,9 +1,11 @@
 "use client";
 
-import { ExternalLink, Github } from "lucide-react";
+import { useState } from "react";
+import { ExternalLink, Github, X, ChevronDown, ChevronUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 interface Project {
   title: string;
@@ -44,6 +46,21 @@ const projects: Project[] = [
 ];
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [expandedDescriptions, setExpandedDescriptions] = useState<{ [key: number]: boolean }>({});
+
+  const toggleDescription = (index: number) => {
+    setExpandedDescriptions(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
+  const getTruncatedDescription = (description: string, maxLength: number = 120) => {
+    if (description.length <= maxLength) return description;
+    return description.substring(0, maxLength) + "...";
+  };
+
   return (
     <section id="projects" className="py-24 px-6 lg:px-8 bg-muted/30">
       <div className="max-w-7xl mx-auto">
@@ -72,9 +89,31 @@ export default function Projects() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
-                  {project.description}
-                </p>
+                <div className="text-sm text-muted-foreground mb-4">
+                  {expandedDescriptions[index] ? (
+                    <div>
+                      <p className="mb-2">{project.description}</p>
+                      <button
+                        onClick={() => toggleDescription(index)}
+                        className="text-primary hover:underline flex items-center gap-1 text-xs"
+                      >
+                        <ChevronUp className="h-3 w-3" />
+                        Show less
+                      </button>
+                    </div>
+                  ) : (
+                    <div>
+                      <p className="mb-2">{getTruncatedDescription(project.description)}</p>
+                      <button
+                        onClick={() => toggleDescription(index)}
+                        className="text-primary hover:underline flex items-center gap-1 text-xs"
+                      >
+                        <ChevronDown className="h-3 w-3" />
+                        Read more
+                      </button>
+                    </div>
+                  )}
+                </div>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.techStack.map((tech) => (
                     <Badge key={tech} variant="secondary" className="text-xs">
@@ -116,6 +155,66 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
+      {/* Project Detail Modal */}
+      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold">{selectedProject?.title}</DialogTitle>
+          </DialogHeader>
+          {selectedProject && (
+            <div className="space-y-6">
+              <div className="relative h-64 overflow-hidden rounded-lg bg-muted">
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-2">Description</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {selectedProject.description}
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-2">Technologies Used</h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.techStack.map((tech) => (
+                    <Badge key={tech} variant="secondary">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+              <div className="flex gap-4 pt-4">
+                <Button asChild className="flex-1">
+                  <a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="h-4 w-4 mr-2" />
+                    View Code
+                  </a>
+                </Button>
+                {selectedProject.demoUrl && (
+                  <Button asChild className="flex-1">
+                    <a
+                      href={selectedProject.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Live Demo
+                    </a>
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
