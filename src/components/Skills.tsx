@@ -24,50 +24,50 @@ const skillCategories: SkillCategory[] = [
       { 
         name: "Kotlin", 
         level: 95, 
-        description: "Primary language for Android development, used extensively in production apps",
-        projects: ["JukeBot", "Ahold Delhaize Apps"]
+        description: "Primary language for Android development, used extensively in production enterprise apps",
+        projects: ["Ahold Delhaize Apps", "JukeBot"]
+      },
+      { 
+        name: "Android SDK", 
+        level: 92, 
+        description: "Core Android development framework and APIs, production experience at scale",
+        projects: ["Ahold Delhaize Apps", "JukeBot"]
+      },
+      { 
+        name: "Retrofit", 
+        level: 90, 
+        description: "Type-safe HTTP client for Android networking in enterprise applications",
+        projects: ["Ahold Delhaize Apps", "JukeBot"]
+      },
+      { 
+        name: "Room Database", 
+        level: 88, 
+        description: "Local database management for Android apps handling millions of users",
+        projects: ["Ahold Delhaize Apps", "JukeBot"]
+      },
+      { 
+        name: "Dagger", 
+        level: 85, 
+        description: "Dependency injection framework for scalable enterprise Android applications",
+        projects: ["Ahold Delhaize Apps", "JukeBot"]
       },
       { 
         name: "Jetpack Compose", 
         level: 90, 
         description: "Modern declarative UI toolkit for building native Android interfaces",
-        projects: ["JukeBot", "Modern Android UI Development"]
-      },
-      { 
-        name: "Android SDK", 
-        level: 92, 
-        description: "Core Android development framework and APIs",
-        projects: ["JukeBot", "Professional Android Apps"]
-      },
-      { 
-        name: "Retrofit", 
-        level: 90, 
-        description: "Type-safe HTTP client for Android networking",
-        projects: ["JukeBot", "API Integration Projects"]
-      },
-      { 
-        name: "Room Database", 
-        level: 88, 
-        description: "Local database management for Android apps",
-        projects: ["JukeBot", "Data-driven Android Apps"]
-      },
-      { 
-        name: "Hilt", 
-        level: 85, 
-        description: "Modern dependency injection framework built on Dagger",
-        projects: ["JukeBot", "Enterprise Android Apps"]
+        projects: ["Ahold Delhaize Apps", "Modern Android UI Development"]
       },
       { 
         name: "Coroutines", 
         level: 88, 
-        description: "Asynchronous programming with Kotlin coroutines",
-        projects: ["JukeBot", "Modern Android Development"]
+        description: "Asynchronous programming with Kotlin coroutines in production apps",
+        projects: ["Ahold Delhaize Apps", "JukeBot"]
       },
       { 
-        name: "Flow", 
-        level: 82, 
-        description: "Cold asynchronous data streams for reactive programming",
-        projects: ["JukeBot", "Real-time Data Streaming"]
+        name: "RxJava", 
+        level: 80, 
+        description: "Reactive programming library for Android, enterprise app experience",
+        projects: ["Ahold Delhaize Apps", "Asynchronous Android Development"]
       },
     ],
   },
