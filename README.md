@@ -1,267 +1,101 @@
-# Portfolio Website
-
-A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. This project is designed to run seamlessly across multiple platforms including Windows, macOS, and Linux.
-
-## 🌟 Features
-
-- **Cross-platform compatibility** - Runs on Windows, macOS, and Linux
-- **Modern tech stack** - Next.js 14, TypeScript, Tailwind CSS
-- **Responsive design** - Mobile-first approach with beautiful UI
-- **Dark/Light mode** - Theme switching with system preference detection
-- **Docker support** - Containerized deployment for any platform
-- **CI/CD ready** - GitHub Actions workflows for automated builds
-- **Performance optimized** - Static site generation with Next.js
-
-## 🚀 Quick Start
+# Hi there, I'm Felix Nampanya! 👋
 
-### Prerequisites
-
-- **Node.js** 18.0.0 or higher
-- **npm** 8.0.0 or higher
-- **Git** (for version control)
+[![Portfolio](https://img.shields.io/badge/Portfolio-felixny.github.io-blue?style=for-the-badge&logo=github)](https://felixny.github.io)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-felixny-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/felixny)
+[![Email](https://img.shields.io/badge/Email-felixynx@gmail.com-red?style=for-the-badge&logo=gmail)](mailto:felixynx@gmail.com)
 
-### Platform-Specific Setup
+## 🚀 About Me
 
-#### 🪟 Windows
-
-1. **Install Node.js:**
-   ```powershell
-   # Using Chocolatey
-   choco install nodejs
-
-   # Or download from https://nodejs.org/
-   ```
-
-2. **Clone and setup:**
-   ```cmd
-   git clone https://github.com/felixny/felixny.github.io.git
-   cd felixny.github.io
-   scripts\setup.bat
-   ```
-
-3. **Start development:**
-   ```cmd
-   npm run dev
-   ```
-
-#### 🍎 macOS
-
-1. **Install Node.js:**
-   ```bash
-   # Using Homebrew
-   brew install node
+I'm a passionate **Software Engineer** with 4+ years of experience in full-stack development, specializing in **Android**, **Frontend**, and **Backend** technologies. I love building elegant solutions with modern technologies and creating seamless user experiences.
 
-   # Or using nvm
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-   nvm install 18
-   nvm use 18
-   ```
+**📍 Location:** Boston, MA  
+**💼 Status:** Available for opportunities  
+**🎯 Focus:** Mobile & Web Development, Cloud Technologies
 
-2. **Clone and setup:**
-   ```bash
-   git clone https://github.com/felixny/felixny.github.io.git
-   cd felixny.github.io
-   chmod +x scripts/setup.sh
-   ./scripts/setup.sh
-   ```
+## 🛠️ Tech Stack
 
-3. **Start development:**
-   ```bash
-   npm run dev
-   ```
+### Mobile Development
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?style=for-the-badge&logo=kotlin&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 
-#### 🐧 Linux (Ubuntu/Debian)
+### Frontend Development
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-1. **Install Node.js:**
-   ```bash
-   # Using NodeSource repository
-   curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-   sudo apt-get install -y nodejs
-
-   # Or using snap
-   sudo snap install node --classic
-   ```
-
-2. **Clone and setup:**
-   ```bash
-   git clone https://github.com/felixny/felixny.github.io.git
-   cd felixny.github.io
-   chmod +x scripts/setup.sh
-   ./scripts/setup.sh
-   ```
-
-3. **Start development:**
-   ```bash
-   npm run dev
-   ```
-
-## 🐳 Docker Support
-
-### Using Docker Compose (Recommended)
-
-```bash
-# Development with hot reload
-npm run docker:dev
+### Backend Development
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-# Production build and run
-docker-compose up --build
-```
+### Databases & Cloud
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![AWS](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
 
-### Using Docker directly
+## 🎯 Featured Projects
 
-```bash
-# Build the image
-npm run docker:build
+### 🧳 Travel Bucket List & Info Hub
+A full-stack web application for managing travel bucket lists with destination tracking, photo management, and travel planning features.
 
-# Run the container
-npm run docker:run
-```
+**Tech Stack:** React, TypeScript, Node.js, Express, Supabase, AWS S3, Tailwind CSS  
+**Features:** Modern glass morphism UI, AWS S3 integration, external API integrations
 
-## 📋 Available Scripts
+[![GitHub](https://img.shields.io/badge/GitHub-View_Project-black?style=for-the-badge&logo=github)](https://github.com/felixny/travel-bucketlist-app)
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run start` | Start production server |
-| `npm run export` | Export static site |
-| `npm run preview` | Preview production build |
-| `npm run clean` | Clean build artifacts |
-| `npm run reinstall` | Clean and reinstall dependencies |
-| `npm run check` | Run type check and linting |
-| `npm run format` | Format code with Prettier |
-| `npm run docker:build` | Build Docker image |
-| `npm run docker:run` | Run Docker container |
-| `npm run docker:dev` | Run with Docker Compose |
+### 📊 Crypto Tracker
+A Python application that monitors cryptocurrency prices in real-time, sends email alerts when prices cross predefined thresholds, and generates trend graphs.
 
-## 🚀 Deployment
-
-### GitHub Pages
+**Tech Stack:** Python, Pandas, Matplotlib, Requests, SMTP, CoinGecko API  
+**Features:** Real-time monitoring, email alerts, historical data storage, trend analysis
 
-```bash
-npm run deploy:github
-```
+[![GitHub](https://img.shields.io/badge/GitHub-View_Project-black?style=for-the-badge&logo=github)](https://github.com/felixny/crypto-tracker)
 
-### Vercel
-
-```bash
-npm run deploy:vercel
-```
+### 🎵 JukeBot Music Player
+Real-time collaborative music sessions using Kotlin, Firebase backend, and GraphQL APIs, enabling synchronized group playlists.
 
-### Netlify
+**Tech Stack:** Android, Kotlin, Firebase, GraphQL, React, Real-time  
+**Features:** Cross-platform control, synchronized playlists, real-time collaboration
 
-```bash
-npm run deploy:netlify
-```
+[![GitHub](https://img.shields.io/badge/GitHub-View_Project-black?style=for-the-badge&logo=github)](https://github.com/felixny/JukeBot)
 
-### Docker
+## 📈 GitHub Stats
 
-```bash
-# Build and push to registry
-docker build -t your-username/portfolio .
-docker push your-username/portfolio
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=felixny&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=felixny&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
+</div>
 
-# Deploy to any platform supporting Docker
-```
+## 🏆 Achievements
 
-## 🛠️ Development
+- 🎓 **4+ years** of professional software development experience
+- 🚀 **Full-stack expertise** across mobile, web, and backend technologies
+- ☁️ **Cloud-native** development with AWS and Firebase
+- 🔄 **Cross-platform** development for maximum reach
+- 📱 **Mobile-first** approach with responsive design principles
 
-### Project Structure
+## 🌟 What I'm Working On
 
-```
-├── src/
-│   ├── app/                 # Next.js app directory
-│   ├── components/          # React components
-│   └── lib/                 # Utility functions
-├── public/                  # Static assets
-├── scripts/                 # Platform-specific scripts
-├── .github/workflows/       # CI/CD configurations
-├── Dockerfile              # Production Docker image
-├── Dockerfile.dev          # Development Docker image
-├── docker-compose.yml      # Docker Compose configuration
-└── README.md               # This file
-```
+- 🔍 Exploring **AI/ML integration** in mobile applications
+- 🌐 Building **scalable microservices** architecture
+- 📱 Developing **cross-platform** solutions with React Native
+- ☁️ Advancing **cloud-native** development practices
 
-### Environment Variables
+## 🤝 Let's Connect!
 
-Copy `env.example` to `.env.local` and configure:
+I'm always interested in discussing new opportunities, collaborating on interesting projects, or just having a chat about technology!
 
-```bash
-# Application
-NODE_ENV=development
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-
-# Analytics (Optional)
-NEXT_PUBLIC_GA_MEASUREMENT_ID=your-ga-id
-NEXT_PUBLIC_PLAUSIBLE_DOMAIN=your-domain.com
-
-# External APIs (Optional)
-NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=your-unsplash-key
-```
-
-## 🔧 Troubleshooting
-
-### Common Issues
-
-#### Node.js Version Issues
-```bash
-# Check Node.js version
-node --version
-
-# Should be 18.0.0 or higher
-# If not, update using your platform's method
-```
-
-#### Permission Issues (Linux/macOS)
-```bash
-# Fix script permissions
-chmod +x scripts/setup.sh
-
-# Fix npm permissions
-sudo chown -R $(whoami) ~/.npm
-```
-
-#### Windows Path Issues
-```cmd
-# Use Windows-style paths
-npm run dev
-# Instead of ./scripts/setup.sh
-```
-
-#### Docker Issues
-```bash
-# Clean Docker cache
-docker system prune -a
-
-# Rebuild without cache
-docker build --no-cache -t portfolio .
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit changes: `git commit -m 'Add amazing feature'`
-4. Push to branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Next.js](https://nextjs.org/) - React framework
-- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
-- [Radix UI](https://www.radix-ui.com/) - UI components
-- [Lucide React](https://lucide.dev/) - Icons
-
-## 📞 Contact
-
-- **GitHub**: [@felixny](https://github.com/felixny)
-- **LinkedIn**: [Felix Ny](https://linkedin.com/in/felixny)
-- **Email**: [Contact Form](https://felixny.github.io/#contact)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit_My_Site-blue?style=for-the-badge&logo=github)](https://felixny.github.io)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/felixny)
+[![Email](https://img.shields.io/badge/Email-Get_in_Touch-red?style=for-the-badge&logo=gmail)](mailto:felixynx@gmail.com)
 
 ---
 
-⭐ Star this repository if you found it helpful!
+<div align="center">
+  <img src="https://komarev.com/ghpvc/?username=felixny&style=for-the-badge&color=blue" alt="Profile Views" />
+</div>
+
+*"Building elegant solutions with modern technologies"* ✨
