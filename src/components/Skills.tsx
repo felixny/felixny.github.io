@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Progress } from "@/components/ui/progress";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useTranslations } from "@/hooks/useTranslations";
 
 interface Skill {
   name: string;
@@ -17,9 +18,9 @@ interface SkillCategory {
   skills: Skill[];
 }
 
-const skillCategories: SkillCategory[] = [
+const getSkillCategories = (t: any): SkillCategory[] => [
   {
-    title: "Android Development",
+    title: t("skills.mobile"),
     skills: [
       { 
         name: "Kotlin", 
@@ -72,7 +73,7 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Frontend Development",
+    title: t("skills.frontend"),
     skills: [
       { 
         name: "React / Next.js", 
@@ -107,7 +108,7 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Backend Development",
+    title: t("skills.backend"),
     skills: [
       { 
         name: "GraphQL", 
@@ -162,14 +163,17 @@ const skillCategories: SkillCategory[] = [
 ];
 
 export default function Skills() {
+  const { t } = useTranslations();
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+  
+  const skillCategories = getSkillCategories(t);
 
   const getSkillLevel = (level: number) => {
-    if (level >= 90) return "Expert";
-    if (level >= 80) return "Advanced";
-    if (level >= 70) return "Intermediate";
-    return "Beginner";
+    if (level >= 90) return t("skills.expert");
+    if (level >= 80) return t("skills.advanced");
+    if (level >= 70) return t("skills.intermediate");
+    return t("skills.beginner");
   };
 
   const getSkillColor = (level: number) => {
@@ -184,10 +188,10 @@ export default function Skills() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Skills & Expertise
+            {t("skills.title")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Hover over skills to see details, click for more information about my experience.
+            {t("skills.subtitle")}
           </p>
         </div>
 
@@ -281,7 +285,7 @@ export default function Skills() {
                     {getSkillLevel(selectedSkill.level)}
                   </Badge>
                   <span className="text-sm text-muted-foreground">
-                    {selectedSkill.level}% proficiency
+                    {selectedSkill.level}% {t("skills.proficiency")}
                   </span>
                 </div>
                 
@@ -297,7 +301,7 @@ export default function Skills() {
                 </p>
                 
                 <div>
-                  <h4 className="font-medium mb-2">Used in projects:</h4>
+                  <h4 className="font-medium mb-2">{t("skills.usedInProjects")}</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedSkill.projects?.map((project, idx) => (
                       <Badge key={idx} variant="outline">

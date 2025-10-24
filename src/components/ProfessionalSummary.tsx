@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Download, Mail, MapPin, Phone, Calendar, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "@/hooks/useTranslations";
 
 interface Experience {
   title: string;
@@ -96,55 +97,55 @@ const skills: Skill[] = [
 ];
 
 export default function ProfessionalSummary() {
+  const { t } = useTranslations();
+
   return (
     <section id="professional-summary" className="py-24 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Professional Summary
+            {t("about.title")}
           </h2>
-                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Experienced software engineer with expertise in full-stack development,
-                    modern web technologies, and building scalable applications.
-                  </p>
-                  {/* Force rebuild for GitHub Pages */}
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {t("about.description")}
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Information */}
           <div className="lg:col-span-1">
             <Card className="p-6 h-fit">
-              <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+              <h3 className="text-xl font-semibold mb-6">{t("about.contactInfo")}</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-sm">felixynx@gmail.com</span>
+                  <span className="text-sm">{t("about.email")}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-sm">Boston, MA</span>
+                  <span className="text-sm">{t("about.location")}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Calendar className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-sm">Available for opportunities</span>
+                  <span className="text-sm">{t("about.availability")}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <ExternalLink className="h-5 w-5 text-muted-foreground" />
                   <a href="https://linkedin.com/in/felixny" target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">
-                    LinkedIn Profile
+                    {t("about.linkedin")}
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <ExternalLink className="h-5 w-5 text-muted-foreground" />
                   <a href="https://github.com/felixny" target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">
-                    GitHub Profile
+                    {t("about.github")}
                   </a>
                 </div>
               </div>
               <Button className="w-full mt-6" asChild>
                 <a href="https://drive.google.com/uc?export=download&id=1rcP-irzAWbOMlQ4R_2ukN9Qn5U_OOb5U" target="_blank" rel="noopener noreferrer">
                   <Download className="h-4 w-4 mr-2" />
-                  Download Resume
+                  {t("about.downloadResume")}
                 </a>
               </Button>
             </Card>
@@ -154,18 +155,15 @@ export default function ProfessionalSummary() {
           <div className="lg:col-span-2 space-y-8">
             {/* Professional Summary */}
             <Card className="p-6">
-              <h3 className="text-xl font-semibold mb-4">About Me</h3>
+              <h3 className="text-xl font-semibold mb-4">{t("about.title")}</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Passionate software engineer with 4+ years of experience in full-stack development. 
-                Specialized in building modern web applications using React, Node.js, and cloud technologies. 
-                Strong background in mobile development with React Native and Android. 
-                Committed to writing clean, maintainable code and delivering exceptional user experiences.
+                {t("about.description")}
               </p>
             </Card>
 
             {/* Experience */}
             <Card className="p-6">
-              <h3 className="text-xl font-semibold mb-6">Professional Experience</h3>
+              <h3 className="text-xl font-semibold mb-6">{t("about.experience")}</h3>
               <div className="space-y-8">
                 {experiences.map((exp, index) => (
                   <div key={index} className="border-l-2 border-primary/20 pl-6">
@@ -199,7 +197,7 @@ export default function ProfessionalSummary() {
 
             {/* Education */}
             <Card className="p-6">
-              <h3 className="text-xl font-semibold mb-6">Education</h3>
+              <h3 className="text-xl font-semibold mb-6">{t("about.education")}</h3>
               <div className="space-y-6">
                 {education.map((edu, index) => (
                   <div key={index} className="border-l-2 border-primary/20 pl-6">
@@ -221,7 +219,7 @@ export default function ProfessionalSummary() {
 
             {/* Skills */}
             <Card className="p-6">
-              <h3 className="text-xl font-semibold mb-6">Technical Skills</h3>
+              <h3 className="text-xl font-semibold mb-6">{t("about.technicalSkills")}</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {skills.map((skill, index) => (
                   <div key={index}>

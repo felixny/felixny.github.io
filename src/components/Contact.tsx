@@ -7,8 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
+import { useTranslations } from "@/hooks/useTranslations";
 
 export default function Contact() {
+  const { t } = useTranslations();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
@@ -22,19 +24,19 @@ export default function Contact() {
     const newErrors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
+      newErrors.name = t("contact.nameRequired");
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
+      newErrors.email = t("contact.emailRequired");
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email";
+      newErrors.email = t("contact.emailInvalid");
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
+      newErrors.message = t("contact.messageRequired");
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Message must be at least 10 characters";
+      newErrors.message = t("contact.messageMinLength");
     }
 
     setErrors(newErrors);
@@ -61,15 +63,15 @@ export default function Contact() {
       window.open(`mailto:felixynx@gmail.com?subject=${subject}&body=${body}`);
       
       toast({
-        title: "Email client opened!",
-        description: "Your default email client should open with a pre-filled message. Please send it to complete the contact.",
+        title: t("contact.emailClientOpened"),
+        description: t("contact.emailClientDescription"),
       });
       
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Sorry, there was an error. Please email felixynx@gmail.com directly.",
+        title: t("contact.error"),
+        description: t("contact.errorDescription"),
         variant: "destructive",
       });
     }
@@ -96,11 +98,10 @@ export default function Contact() {
             <Mail className="h-8 w-8" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            Get in Touch
+            {t("contact.title")}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Have a project in mind? Let's work together to bring your ideas to
-            life.
+            {t("contact.subtitle")}
           </p>
         </div>
 
@@ -111,14 +112,14 @@ export default function Contact() {
                 htmlFor="name"
                 className="block text-sm font-medium mb-2"
               >
-                Name
+                {t("contact.name")}
               </label>
               <Input
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your name"
+                placeholder={t("contact.namePlaceholder")}
                 className={errors.name ? "border-destructive" : ""}
               />
               {errors.name && (
@@ -131,7 +132,7 @@ export default function Contact() {
                 htmlFor="email"
                 className="block text-sm font-medium mb-2"
               >
-                Email
+                {t("contact.email")}
               </label>
               <Input
                 id="email"
@@ -139,7 +140,7 @@ export default function Contact() {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="your.email@example.com"
+                placeholder={t("contact.emailPlaceholder")}
                 className={errors.email ? "border-destructive" : ""}
               />
               {errors.email && (
@@ -152,14 +153,14 @@ export default function Contact() {
                 htmlFor="message"
                 className="block text-sm font-medium mb-2"
               >
-                Message
+                {t("contact.message")}
               </label>
               <Textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Tell me about your project..."
+                placeholder={t("contact.messagePlaceholder")}
                 rows={6}
                 className={errors.message ? "border-destructive" : ""}
               />
@@ -177,10 +178,10 @@ export default function Contact() {
               disabled={isSubmitting}
             >
               {isSubmitting ? (
-                "Sending..."
+                t("contact.sending")
               ) : (
                 <>
-                  Send Message
+                  {t("contact.sendMessage")}
                   <Send className="ml-2 h-4 w-4" />
                 </>
               )}

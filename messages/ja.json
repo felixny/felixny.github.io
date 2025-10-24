@@ -16,7 +16,7 @@
   "about": {
     "title": "私について",
     "description": "フルスタック開発で4年以上の経験を持つ情熱的なソフトウェアエンジニアです。革新的なソリューションを作り、コードを通じてアイデアを実現することが大好きです。",
-    "experience": "経験",
+    "experience": "職歴",
     "education": "学歴",
     "contactInfo": "連絡先情報",
     "email": "felixynx@gmail.com",
@@ -24,7 +24,8 @@
     "availability": "機会をお待ちしています",
     "linkedin": "LinkedInプロフィール",
     "github": "GitHubプロフィール",
-    "downloadResume": "履歴書をダウンロード"
+    "downloadResume": "履歴書をダウンロード",
+    "technicalSkills": "技術スキル"
   },
   "projects": {
     "title": "注目のプロジェクト",
@@ -45,7 +46,12 @@
       "techStack": "Android, Kotlin, Firebase, GraphQL, React, リアルタイム"
     },
     "viewProject": "プロジェクトを見る",
-    "viewCode": "コードを見る"
+    "viewCode": "コードを見る",
+    "readMore": "続きを読む",
+    "showLess": "折りたたむ",
+    "description": "説明",
+    "technologiesUsed": "使用技術",
+    "liveDemo": "ライブデモ"
   },
   "skills": {
     "title": "スキル＆技術",
@@ -54,7 +60,13 @@
     "frontend": "フロントエンド開発",
     "backend": "バックエンド開発",
     "databases": "データベース＆クラウド",
-    "tools": "ツール＆その他"
+    "tools": "ツール＆その他",
+    "expert": "エキスパート",
+    "advanced": "上級",
+    "intermediate": "中級",
+    "beginner": "初級",
+    "proficiency": "習熟度",
+    "usedInProjects": "使用プロジェクト："
   },
   "contact": {
     "title": "お問い合わせ",
@@ -72,6 +84,9 @@
     "emailClientOpened": "メールクライアントが開きました！",
     "emailClientDescription": "デフォルトのメールクライアントが事前入力されたメッセージで開くはずです。完了するために送信してください。",
     "error": "エラー",
-    "errorDescription": "申し訳ありませんが、エラーが発生しました。felixynx@gmail.comに直接メールしてください。"
+    "errorDescription": "申し訳ありませんが、エラーが発生しました。felixynx@gmail.comに直接メールしてください。",
+    "namePlaceholder": "お名前を入力してください",
+    "emailPlaceholder": "your.email@example.com",
+    "messagePlaceholder": "プロジェクトについて教えてください..."
   }
 }

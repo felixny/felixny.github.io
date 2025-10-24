@@ -16,7 +16,7 @@
   "about": {
     "title": "About Me",
     "description": "Passionate software engineer with 4+ years of experience in full-stack development. I love creating innovative solutions and bringing ideas to life through code.",
-    "experience": "Experience",
+    "experience": "Professional Experience",
     "education": "Education",
     "contactInfo": "Contact Information",
     "email": "felixynx@gmail.com",
@@ -24,7 +24,8 @@
     "availability": "Available for opportunities",
     "linkedin": "LinkedIn Profile",
     "github": "GitHub Profile",
-    "downloadResume": "Download Resume"
+    "downloadResume": "Download Resume",
+    "technicalSkills": "Technical Skills"
   },
   "projects": {
     "title": "Featured Projects",
@@ -45,7 +46,12 @@
       "techStack": "Android, Kotlin, Firebase, GraphQL, React, Real-time"
     },
     "viewProject": "View Project",
-    "viewCode": "View Code"
+    "viewCode": "View Code",
+    "readMore": "Read more",
+    "showLess": "Show less",
+    "description": "Description",
+    "technologiesUsed": "Technologies Used",
+    "liveDemo": "Live Demo"
   },
   "skills": {
     "title": "Skills & Technologies",
@@ -54,7 +60,13 @@
     "frontend": "Frontend Development",
     "backend": "Backend Development",
     "databases": "Databases & Cloud",
-    "tools": "Tools & Others"
+    "tools": "Tools & Others",
+    "expert": "Expert",
+    "advanced": "Advanced",
+    "intermediate": "Intermediate",
+    "beginner": "Beginner",
+    "proficiency": "proficiency",
+    "usedInProjects": "Used in projects:"
   },
   "contact": {
     "title": "Get in Touch",
@@ -72,6 +84,9 @@
     "emailClientOpened": "Email client opened!",
     "emailClientDescription": "Your default email client should open with a pre-filled message. Please send it to complete the contact.",
     "error": "Error",
-    "errorDescription": "Sorry, there was an error. Please email felixynx@gmail.com directly."
+    "errorDescription": "Sorry, there was an error. Please email felixynx@gmail.com directly.",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your.email@example.com",
+    "messagePlaceholder": "Tell me about your project..."
   }
 }
