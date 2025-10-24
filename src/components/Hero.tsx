@@ -20,8 +20,6 @@ export default function Hero() {
         <div className="mb-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
             Felix Nampanya
-            Hi there!
-            I'm Felix, a software engineer with a passion for building elegant solutions with modern technologies.
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground mb-6">
             Software Engineer
