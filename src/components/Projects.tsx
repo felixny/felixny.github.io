@@ -16,22 +16,22 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "E-Commerce Platform",
+    title: "Travel Bucket List & Info Hub",
     description:
-      "A full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.",
-    techStack: ["React", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS"],
-    githubUrl: "https://github.com",
-    demoUrl: "https://demo.example.com",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
+      "A full-stack web application for managing your travel bucket list with destination tracking, photo management, and travel planning features. Features modern glass morphism UI, AWS S3 integration, and external API integrations.",
+    techStack: ["React", "TypeScript", "Node.js", "Express", "Supabase", "AWS S3", "Tailwind CSS"],
+    githubUrl: "https://github.com/felixny/travel-bucketlist-app",
+    demoUrl: "https://github.com/felixny/travel-bucketlist-app",
+    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80",
   },
   {
-    title: "Task Management App",
+    title: "Crypto Tracker",
     description:
-      "Collaborative task management application with real-time updates, team workspaces, and productivity analytics.",
-    techStack: ["Next.js", "TypeScript", "Supabase", "shadcn/ui"],
-    githubUrl: "https://github.com",
-    demoUrl: "https://demo.example.com",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+      "A Python application that monitors cryptocurrency prices in real-time, sends email alerts when prices cross predefined thresholds, and generates trend graphs with historical data storage.",
+    techStack: ["Python", "Pandas", "Matplotlib", "Requests", "SMTP", "CoinGecko API"],
+    githubUrl: "https://github.com/felixny/crypto-tracker",
+    demoUrl: "https://github.com/felixny/crypto-tracker",
+    image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&q=80",
   },
   {
     title: "Weather Dashboard",
