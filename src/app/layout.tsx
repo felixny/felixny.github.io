@@ -6,8 +6,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tempo - Modern SaaS Starter",
-  description: "A modern full-stack starter template powered by Next.js",
+  title: "Felix Nampanya - Software Engineer Portfolio",
+  description: "Software Engineer specializing in Android, Frontend, and Backend development. Experience with Kotlin, React, Node.js, and modern web technologies.",
 };
 
 export default function RootLayout({
