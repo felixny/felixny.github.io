@@ -36,12 +36,13 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&q=80",
   },
   {
-    title: "Weather Dashboard",
+    title: "JukeBot Music Player",
     description:
-      "Beautiful weather application with location-based forecasts, interactive maps, and weather alerts.",
-    techStack: ["React Native", "TypeScript", "OpenWeather API", "Redux"],
-    githubUrl: "https://github.com",
-    image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80",
+      "Real-time collaborative music sessions using Kotlin, Firebase backend, and GraphQL APIs, enabling synchronized group playlists. Features a React web companion app for cross-platform control and playback.",
+    techStack: ["Android", "Kotlin", "Firebase", "GraphQL", "React", "Real-time"],
+    githubUrl: "https://github.com/felixny/JukeBot",
+    demoUrl: "https://github.com/felixny/JukeBot",
+    image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
   },
 ];
 
