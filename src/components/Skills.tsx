@@ -44,7 +44,7 @@ const skillCategories: SkillCategory[] = [
       { name: "Node.js", level: 88 },
       { name: "Express.js", level: 85 },
       { name: "AWS", level: 88 },
-      { name: "Firebase", level: 82 },
+      { name: "Firebase", level: 95 },
       { name: "PostgreSQL", level: 85 },
       { name: "Docker", level: 80 },
     ],
