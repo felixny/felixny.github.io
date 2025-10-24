@@ -107,3 +107,7 @@ Thumbs.db
 
 # PDF files (resume, documents)
 *.pdf
+
+# Tempo-specific
+**/tempobook/dynamic/
+**/tempobook/storyboards/
