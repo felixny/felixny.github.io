@@ -2,7 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Download, Mail, MapPin, Phone, Calendar, Linkedin as LinkedIn, Github as GitHub } from "lucide-react";
+import { Download, Mail, MapPin, Phone, Calendar, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface Experience {
@@ -128,13 +128,13 @@ export default function ProfessionalSummary() {
                   <span className="text-sm">Available for opportunities</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <LinkedIn className="h-5 w-5 text-muted-foreground" />
+                  <ExternalLink className="h-5 w-5 text-muted-foreground" />
                   <a href="https://www.linkedin.com/in/felix-n-6790b2ba/" target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">
                     LinkedIn Profile
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <GitHub className="h-5 w-5 text-muted-foreground" />
+                  <ExternalLink className="h-5 w-5 text-muted-foreground" />
                   <a href="https://github.com/felixny" target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">
                     GitHub Profile
                   </a>
