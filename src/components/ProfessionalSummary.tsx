@@ -103,10 +103,11 @@ export default function ProfessionalSummary() {
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
             Professional Summary
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Experienced software engineer with expertise in full-stack development, 
-            modern web technologies, and building scalable applications.
-          </p>
+                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                    Experienced software engineer with expertise in full-stack development,
+                    modern web technologies, and building scalable applications.
+                  </p>
+                  {/* Force rebuild for GitHub Pages */}
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
