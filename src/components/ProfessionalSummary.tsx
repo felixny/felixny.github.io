@@ -129,7 +129,7 @@ export default function ProfessionalSummary() {
                 </div>
               </div>
               <Button className="w-full mt-6" asChild>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/uc?export=download&id=1rcP-irzAWbOMlQ4R_2ukN9Qn5U_OOb5U" target="_blank" rel="noopener noreferrer">
                   <Download className="h-4 w-4 mr-2" />
                   Download Resume
                 </a>
