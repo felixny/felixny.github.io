@@ -1,7 +1,7 @@
 # Hi there, I'm Felix! 👋
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-felixny.github.io-blue?style=for-the-badge&logo=github)](https://felixny.github.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-felixny-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/felix-n-6790b2ba)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-felixny-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/felix-n-6790b2ba/)
 [![Email](https://img.shields.io/badge/Email-felixynx@gmail.com-red?style=for-the-badge&logo=gmail)](mailto:felixynx@gmail.com)
 
 ## 🚀 About Me
@@ -88,7 +88,7 @@ Real-time collaborative music sessions using Kotlin, Firebase backend, and Graph
 I'm always interested in discussing new opportunities, collaborating on interesting projects, or just having a chat about technology!
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-Visit_My_Site-blue?style=for-the-badge&logo=github)](https://felixny.github.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/felix-n-6790b2ba)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/felix-n-6790b2ba/)
 [![Email](https://img.shields.io/badge/Email-Get_in_Touch-red?style=for-the-badge&logo=gmail)](mailto:felixynx@gmail.com)
 
 ---

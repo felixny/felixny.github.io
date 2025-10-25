@@ -80,7 +80,7 @@ export default function Hero() {
             className="group hover:bg-primary/10 transition-colors"
           >
             <a
-              href="https://linkedin.com/in/felixny"
+              href="https://www.linkedin.com/in/felix-n-6790b2ba/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2"
