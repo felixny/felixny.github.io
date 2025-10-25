@@ -45,6 +45,11 @@
       "description": "Real-time collaborative music sessions using Kotlin, Firebase backend, and GraphQL APIs, enabling synchronized group playlists. Features a React web companion app for cross-platform control and playback.",
       "techStack": "Android, Kotlin, Firebase, GraphQL, React, Real-time"
     },
+    "ecommercePlatform": {
+      "title": "E-commerce Platform (ShopEase)",
+      "description": "A modern, full-stack e-commerce platform built with Next.js, React, TypeScript, and Express.js. Features comprehensive business logic, modern UI/UX design, shopping cart, secure checkout flow with mock Stripe payment processing, admin dashboard, and role-based authentication.",
+      "techStack": "Next.js, React, TypeScript, Express.js, Tailwind CSS, Framer Motion, Zustand, JWT, Docker"
+    },
     "viewProject": "View Project",
     "viewCode": "View Code",
     "readMore": "Read more",

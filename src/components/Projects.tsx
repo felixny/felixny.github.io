@@ -42,6 +42,14 @@ const getProjects = (t: any): Project[] => [
     demoUrl: "https://github.com/felixny/JukeBot",
     image: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=800&q=80",
   },
+  {
+    title: t("projects.ecommercePlatform.title"),
+    description: t("projects.ecommercePlatform.description"),
+    techStack: t("projects.ecommercePlatform.techStack").split(", "),
+    githubUrl: "https://github.com/felixny/ecommerce-platform",
+    demoUrl: "https://github.com/felixny/ecommerce-platform",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+  },
 ];
 
 export default function Projects() {

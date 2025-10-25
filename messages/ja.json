@@ -45,6 +45,11 @@
       "description": "Kotlin、Firebaseバックエンド、GraphQL APIを使用したリアルタイム協調音楽セッション。同期されたグループプレイリストを可能にし、クロスプラットフォーム制御のためのReact Webコンパニオンアプリを備えています。",
       "techStack": "Android, Kotlin, Firebase, GraphQL, React, リアルタイム"
     },
+    "ecommercePlatform": {
+      "title": "Eコマースプラットフォーム（ShopEase）",
+      "description": "Next.js、React、TypeScript、Express.jsで構築されたモダンなフルスタックEコマースプラットフォーム。包括的なビジネスロジック、モダンなUI/UXデザイン、ショッピングカート、モックStripe決済処理を備えたセキュアなチェックアウトフロー、管理ダッシュボード、ロールベース認証を特徴とします。",
+      "techStack": "Next.js, React, TypeScript, Express.js, Tailwind CSS, Framer Motion, Zustand, JWT, Docker"
+    },
     "viewProject": "プロジェクトを見る",
     "viewCode": "コードを見る",
     "readMore": "続きを読む",
