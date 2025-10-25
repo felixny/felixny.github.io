@@ -131,7 +131,7 @@ export default function ProfessionalSummary() {
                 </div>
                 <div className="flex items-center gap-3">
                   <ExternalLink className="h-5 w-5 text-muted-foreground" />
-                  <a href="https://www.linkedin.com/in/felix-n-6790b2ba/" target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">
+                  <a href="https://www.linkedin.com/in/felixny/" target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">
                     {t("about.linkedin")}
                   </a>
                 </div>
