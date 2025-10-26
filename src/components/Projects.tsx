@@ -48,7 +48,7 @@ const getProjects = (t: any): Project[] => [
     techStack: t("projects.ecommercePlatform.techStack").split(", "),
     githubUrl: "https://github.com/felixny/ecommerce-platform",
     demoUrl: "https://github.com/felixny/ecommerce-platform",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
   },
 ];
 

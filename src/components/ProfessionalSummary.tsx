@@ -153,14 +153,6 @@ export default function ProfessionalSummary() {
 
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Professional Summary */}
-            <Card className="p-6">
-              <h3 className="text-xl font-semibold mb-4">{t("about.title")}</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {t("about.description")}
-              </p>
-            </Card>
-
             {/* Experience */}
             <Card className="p-6">
               <h3 className="text-xl font-semibold mb-6">{t("about.experience")}</h3>
