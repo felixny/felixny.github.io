@@ -50,6 +50,11 @@
       "description": "A modern, full-stack e-commerce platform built with Next.js, React, TypeScript, and Express.js. Features comprehensive business logic, modern UI/UX design, shopping cart, secure checkout flow with mock Stripe payment processing, admin dashboard, and role-based authentication.",
       "techStack": "Next.js, React, TypeScript, Express.js, Tailwind CSS, Framer Motion, Zustand, JWT, Docker"
     },
+    "voiceApp": {
+      "title": "Voice App - Android Recording with Transcription & Summary",
+      "description": "A robust Android voice recording application with real-time transcription and AI-powered summary generation. Features foreground service with persistent notifications, 30-second audio chunks with overlap handling, automatic transcription storage via Room database, structured AI summaries (Title, Summary, Action Items, Key Points), phone call detection, audio focus management, and background processing. Built with MVVM architecture, Hilt dependency injection, Jetpack Compose UI, and ready for OpenAI Whisper/GPT or Google Gemini integration.",
+      "techStack": "Android, Kotlin, Hilt, Room, Retrofit, Jetpack Compose, Coroutines, Flow, WorkManager"
+    },
     "viewProject": "View Project",
     "viewCode": "View Code",
     "readMore": "Read more",

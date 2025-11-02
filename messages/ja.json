@@ -50,6 +50,11 @@
       "description": "Next.js、React、TypeScript、Express.jsで構築されたモダンなフルスタックEコマースプラットフォーム。包括的なビジネスロジック、モダンなUI/UXデザイン、ショッピングカート、モックStripe決済処理を備えたセキュアなチェックアウトフロー、管理ダッシュボード、ロールベース認証を特徴とします。",
       "techStack": "Next.js, React, TypeScript, Express.js, Tailwind CSS, Framer Motion, Zustand, JWT, Docker"
     },
+    "voiceApp": {
+      "title": "Voice App - Android録音と文字起こし・要約機能",
+      "description": "リアルタイム文字起こしとAIによる要約生成機能を備えた堅牢なAndroid音声録音アプリケーション。永続的な通知付きフォアグラウンドサービス、オーバーラップ処理を備えた30秒オーディオチャンク、Roomデータベースによる自動文字起こし保存、構造化されたAI要約（タイトル、要約、アクション項目、キーポイント）、電話着信検出、オーディオフォーカス管理、バックグラウンド処理を特徴とします。MVVMアーキテクチャ、Hilt依存性注入、Jetpack Compose UIで構築され、OpenAI Whisper/GPTまたはGoogle Gemini統合に対応しています。",
+      "techStack": "Android, Kotlin, Hilt, Room, Retrofit, Jetpack Compose, Coroutines, Flow, WorkManager"
+    },
     "viewProject": "プロジェクトを見る",
     "viewCode": "コードを見る",
     "readMore": "続きを読む",
