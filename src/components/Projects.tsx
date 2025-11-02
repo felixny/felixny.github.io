@@ -58,6 +58,14 @@ const getProjects = (t: any): Project[] => [
     demoUrl: "https://github.com/felixny/voice-app",
     image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&q=80",
   },
+  {
+    title: t("projects.telematicsInsurance.title"),
+    description: t("projects.telematicsInsurance.description"),
+    techStack: t("projects.telematicsInsurance.techStack").split(", "),
+    githubUrl: "https://github.com/felixny/telematics-insurance-poc",
+    demoUrl: "https://github.com/felixny/telematics-insurance-poc",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+  },
 ];
 
 export default function Projects() {

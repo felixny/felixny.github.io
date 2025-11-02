@@ -55,6 +55,11 @@
       "description": "A robust Android voice recording application with real-time transcription and AI-powered summary generation. Features foreground service with persistent notifications, 30-second audio chunks with overlap handling, automatic transcription storage via Room database, structured AI summaries (Title, Summary, Action Items, Key Points), phone call detection, audio focus management, and background processing. Built with MVVM architecture, Hilt dependency injection, Jetpack Compose UI, and ready for OpenAI Whisper/GPT or Google Gemini integration.",
       "techStack": "Android, Kotlin, Hilt, Room, Retrofit, Jetpack Compose, Coroutines, Flow, WorkManager"
     },
+    "telematicsInsurance": {
+      "title": "Telematics-Based Auto Insurance POC",
+      "description": "A proof-of-concept system for telematics-based auto insurance that simulates driving behavior, calculates driver risk scores using machine learning, and dynamically adjusts insurance premiums based on actual driving performance. Features synthetic trip data generation for 100 drivers, feature engineering pipeline, RandomForest ML model for risk scoring (85-90% accuracy), dynamic premium adjustment engine with 30% discount to 25% surcharge range, FastAPI REST API, and interactive web dashboard. Built with Python, scikit-learn, pandas, and FastAPI. Handles data privacy considerations with synthetic data generation.",
+      "techStack": "Python, scikit-learn, pandas, numpy, FastAPI, Machine Learning, RandomForest, LightGBM, Joblib"
+    },
     "viewProject": "View Project",
     "viewCode": "View Code",
     "readMore": "Read more",

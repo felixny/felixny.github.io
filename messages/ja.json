@@ -55,6 +55,11 @@
       "description": "リアルタイム文字起こしとAIによる要約生成機能を備えた堅牢なAndroid音声録音アプリケーション。永続的な通知付きフォアグラウンドサービス、オーバーラップ処理を備えた30秒オーディオチャンク、Roomデータベースによる自動文字起こし保存、構造化されたAI要約（タイトル、要約、アクション項目、キーポイント）、電話着信検出、オーディオフォーカス管理、バックグラウンド処理を特徴とします。MVVMアーキテクチャ、Hilt依存性注入、Jetpack Compose UIで構築され、OpenAI Whisper/GPTまたはGoogle Gemini統合に対応しています。",
       "techStack": "Android, Kotlin, Hilt, Room, Retrofit, Jetpack Compose, Coroutines, Flow, WorkManager"
     },
+    "telematicsInsurance": {
+      "title": "テレマティクスベース自動車保険POC",
+      "description": "運転行動をシミュレートし、機械学習を使用してドライバーのリスクスコアを計算し、実際の運転パフォーマンスに基づいて保険料を動的に調整するテレマティクスベース自動車保険の概念実証システム。100人のドライバー向けの合成トリップデータ生成、特徴エンジニアリングパイプライン、リスクスコアリング用のRandomForest MLモデル（85-90%の精度）、30%割引から25%割増までの範囲を持つ動的保険料調整エンジン、FastAPI REST API、インタラクティブなWebダッシュボードを特徴とします。Python、scikit-learn、pandas、FastAPIで構築されています。合成データ生成によるデータプライバシーへの配慮を実装しています。",
+      "techStack": "Python, scikit-learn, pandas, numpy, FastAPI, 機械学習, RandomForest, LightGBM, Joblib"
+    },
     "viewProject": "プロジェクトを見る",
     "viewCode": "コードを見る",
     "readMore": "続きを読む",
