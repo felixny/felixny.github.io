@@ -100,7 +100,7 @@ export default function ProfessionalSummary() {
   const { t } = useTranslations();
 
   return (
-    <section id="professional-summary" className="py-24 px-6 lg:px-8 bg-background">
+    <section id="professional-summary" className="py-24 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
