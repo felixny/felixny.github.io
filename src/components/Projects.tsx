@@ -62,8 +62,8 @@ const getProjects = (t: any): Project[] => [
     title: t("projects.telematicsInsurance.title"),
     description: t("projects.telematicsInsurance.description"),
     techStack: t("projects.telematicsInsurance.techStack").split(", "),
-    githubUrl: "https://github.com/felixny/telematics-insurance-poc",
-    demoUrl: "https://github.com/felixny/telematics-insurance-poc",
+    githubUrl: "https://github.com/felixny/telematics",
+    demoUrl: "https://github.com/felixny/telematics",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
   },
 ];
