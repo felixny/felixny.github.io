@@ -24,7 +24,7 @@ const getProjects = (t: any): Project[] => [
     techStack: t("projects.travelApp.techStack").split(", "),
     githubUrl: "https://github.com/felixny/travel-bucketlist-app",
     demoUrl: "https://github.com/felixny/travel-bucketlist-app",
-    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80",
+    image: "/images/app/travelhub.png",
   },
   {
     title: t("projects.cryptoTracker.title"),
@@ -40,7 +40,7 @@ const getProjects = (t: any): Project[] => [
     techStack: t("projects.jukeBot.techStack").split(", "),
     githubUrl: "https://github.com/felixny/JukeBot",
     demoUrl: "https://github.com/felixny/JukeBot",
-    image: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=800&q=80",
+    image: "/images/app/jukebot.png",
   },
   {
     title: t("projects.ecommercePlatform.title"),
@@ -48,7 +48,7 @@ const getProjects = (t: any): Project[] => [
     techStack: t("projects.ecommercePlatform.techStack").split(", "),
     githubUrl: "https://github.com/felixny/ecommerce-platform",
     demoUrl: "https://github.com/felixny/ecommerce-platform",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
+    image: "/images/app/ecommerce.png",
   },
   {
     title: t("projects.voiceApp.title"),
