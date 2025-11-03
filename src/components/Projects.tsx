@@ -24,7 +24,7 @@ const getProjects = (t: any): Project[] => [
     techStack: t("projects.travelApp.techStack").split(", "),
     githubUrl: "https://github.com/felixny/travel-bucketlist-app",
     demoUrl: "https://github.com/felixny/travel-bucketlist-app",
-    image: "/images/app/travelhub.png",
+    image: "images/app/travelhub.png",
   },
   {
     title: t("projects.cryptoTracker.title"),
@@ -40,7 +40,7 @@ const getProjects = (t: any): Project[] => [
     techStack: t("projects.jukeBot.techStack").split(", "),
     githubUrl: "https://github.com/felixny/JukeBot",
     demoUrl: "https://github.com/felixny/JukeBot",
-    image: "/images/app/jukebot.png",
+    image: "images/app/jukebot.png",
   },
   {
     title: t("projects.ecommercePlatform.title"),
@@ -48,7 +48,7 @@ const getProjects = (t: any): Project[] => [
     techStack: t("projects.ecommercePlatform.techStack").split(", "),
     githubUrl: "https://github.com/felixny/ecommerce-platform",
     demoUrl: "https://github.com/felixny/ecommerce-platform",
-    image: "/images/app/ecommerce.png",
+    image: "images/app/ecommerce.png",
   },
   {
     title: t("projects.voiceApp.title"),
@@ -56,7 +56,7 @@ const getProjects = (t: any): Project[] => [
     techStack: t("projects.voiceApp.techStack").split(", "),
     githubUrl: "https://github.com/felixny/voice-app",
     demoUrl: "https://github.com/felixny/voice-app",
-    image: "/images/app/voiceapp.png",
+    image: "images/app/voiceapp.png",
   },
   {
     title: t("projects.telematicsInsurance.title"),
