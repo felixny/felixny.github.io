@@ -56,7 +56,7 @@ const getProjects = (t: any): Project[] => [
     techStack: t("projects.voiceApp.techStack").split(", "),
     githubUrl: "https://github.com/felixny/voice-app",
     demoUrl: "https://github.com/felixny/voice-app",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80",
   },
   {
     title: t("projects.telematicsInsurance.title"),
