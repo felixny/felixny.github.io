@@ -1,0 +1,10 @@
+---
+description: Commit messages without tool attribution trailers
+alwaysApply: true
+---
+
+# Git commits
+
+When suggesting or writing git commit messages for this repository, do **not** add footers or trailers such as `Made-with: Cursor`, `Co-authored-by: Cursor`, or similar IDE/tool attribution unless the user explicitly asks for them.
+
+Keep commit subjects and bodies focused on what changed and why.

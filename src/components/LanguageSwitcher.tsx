@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 import { Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,27 +16,21 @@ const languages = [
 ];
 
 export default function LanguageSwitcher() {
-  const router = useRouter();
-  const pathname = usePathname();
+  const [lang, setLang] = useState("en");
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const saved = localStorage.getItem("preferred-language") || "en";
+    setLang(saved);
+  }, []);
+
   const handleLanguageChange = (langCode: string) => {
-    // Store language preference in localStorage
     localStorage.setItem("preferred-language", langCode);
-    
-    // Reload the page to apply the new language
     window.location.reload();
   };
 
-  const getCurrentLanguage = () => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("preferred-language") || "en";
-    }
-    return "en";
-  };
-
-  const currentLang = getCurrentLanguage();
-  const currentLanguage = languages.find(lang => lang.code === currentLang) || languages[0];
+  const currentLanguage =
+    languages.find((l) => l.code === lang) || languages[0];
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
@@ -57,13 +50,13 @@ export default function LanguageSwitcher() {
           <DropdownMenuItem
             key={language.code}
             onClick={() => handleLanguageChange(language.code)}
-            className={`flex items-center gap-2 cursor-pointer ${
-              currentLang === language.code ? "bg-primary/10" : ""
+            className={`flex cursor-pointer items-center gap-2 ${
+              lang === language.code ? "bg-primary/10" : ""
             }`}
           >
             <span className="text-lg">{language.flag}</span>
             <span>{language.name}</span>
-            {currentLang === language.code && (
+            {lang === language.code && (
               <span className="ml-auto text-primary">✓</span>
             )}
           </DropdownMenuItem>

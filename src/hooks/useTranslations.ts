@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 
-// Import translation files
 import enTranslations from "../../messages/en.json";
 import jaTranslations from "../../messages/ja.json";
 
@@ -12,27 +11,26 @@ const translations = {
 };
 
 export function useTranslations() {
-  const [language, setLanguage] = useState("en");
-  const [isLoading, setIsLoading] = useState(true);
+  const [language, setLanguage] = useState<string>("en");
 
   useEffect(() => {
-    // Get language from localStorage or default to English
-    const savedLanguage = localStorage.getItem("preferred-language") || "en";
-    setLanguage(savedLanguage);
-    setIsLoading(false);
+    const saved = localStorage.getItem("preferred-language") || "en";
+    setLanguage(saved);
   }, []);
 
   const t = (key: string) => {
-    if (isLoading) return "";
-    
     const keys = key.split(".");
-    let value: any = translations[language as keyof typeof translations];
-    
+    let value: unknown = translations[language as keyof typeof translations];
+
     for (const k of keys) {
-      value = value?.[k];
+      if (value && typeof value === "object" && k in (value as object)) {
+        value = (value as Record<string, unknown>)[k];
+      } else {
+        return key;
+      }
     }
-    
-    return value || key;
+
+    return typeof value === "string" ? value : key;
   };
 
   const changeLanguage = (newLanguage: string) => {
@@ -40,5 +38,5 @@ export function useTranslations() {
     localStorage.setItem("preferred-language", newLanguage);
   };
 
-  return { t, language, changeLanguage, isLoading };
+  return { t, language, changeLanguage };
 }
