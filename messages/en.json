@@ -11,7 +11,11 @@
     "title": "Software Engineer",
     "description": "Building elegant solutions with modern technologies. Specialized in Android, Frontend, and Backend development.",
     "getInTouch": "Get in Touch",
-    "viewProjects": "View Projects"
+    "viewProjects": "View Projects",
+    "bentoMobile": "Mobile",
+    "bentoApis": "APIs",
+    "bentoWeb": "Web",
+    "techStack": "Kotlin, TypeScript, Node.js, GraphQL, Java, Android, React"
   },
   "about": {
     "title": "About Me",

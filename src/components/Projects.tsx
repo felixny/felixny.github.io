@@ -88,13 +88,17 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-24 px-6 lg:px-8 bg-muted/30">
+    <section
+      id="projects"
+      className="relative border-y border-border bg-muted/30 py-24 px-6 lg:px-8"
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            {t("projects.title")}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <div className="mb-16 max-w-3xl mx-auto text-center space-y-4">
+          <div className="flex justify-center">
+            <span className="section-label">{t("navigation.projects")}</span>
+          </div>
+          <h2 className="section-title">{t("projects.title")}</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
             {t("projects.subtitle")}
           </p>
         </div>
@@ -103,7 +107,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="group overflow-hidden transition-shadow duration-300 hover:shadow-md"
             >
               <div className="relative h-48 overflow-hidden bg-muted">
                 <img

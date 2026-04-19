@@ -37,28 +37,27 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-lg border-b border-border"
+          ? "border-b border-border bg-background/80 shadow-sm backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
           <button
             onClick={() => scrollToSection("hero")}
-            className="text-xl font-semibold tracking-tight hover:opacity-70 transition-opacity"
+            className="text-lg font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80"
           >
             Portfolio
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="rounded-full px-3.5 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               >
                 {item.label}
               </button>
@@ -66,7 +65,6 @@ export default function Navigation() {
             <LanguageSwitcher />
           </div>
 
-          {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
@@ -81,19 +79,18 @@ export default function Navigation() {
           </Button>
         </div>
 
-        {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="border-t border-border py-3 md:hidden">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left py-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="block w-full py-2.5 text-left text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.label}
               </button>
             ))}
-            <div className="px-3 py-2">
+            <div className="px-1 py-2">
               <LanguageSwitcher />
             </div>
           </div>

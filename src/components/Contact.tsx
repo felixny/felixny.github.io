@@ -91,21 +91,25 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 lg:px-8 bg-muted/30">
+    <section
+      id="contact"
+      className="relative border-t border-border bg-muted/30 py-24 px-6 lg:px-8"
+    >
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-            <Mail className="h-8 w-8" />
+        <div className="mb-10 max-w-2xl mx-auto text-center space-y-3">
+          <div className="flex justify-center">
+            <span className="section-label">{t("navigation.contact")}</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            {t("contact.title")}
-          </h2>
-          <p className="text-lg text-muted-foreground">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <Mail className="h-6 w-6" />
+          </div>
+          <h2 className="section-title">{t("contact.title")}</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
             {t("contact.subtitle")}
           </p>
         </div>
 
-        <Card className="p-8">
+        <Card className="p-8 md:p-9">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label

@@ -100,13 +100,14 @@ export default function ProfessionalSummary() {
   const { t } = useTranslations();
 
   return (
-    <section id="professional-summary" className="py-24 px-6 lg:px-8">
+    <section id="professional-summary" className="relative py-24 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            {t("about.title")}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <div className="mb-16 max-w-3xl mx-auto text-center space-y-4">
+          <div className="flex justify-center">
+            <span className="section-label">{t("navigation.about")}</span>
+          </div>
+          <h2 className="section-title">{t("about.title")}</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
             {t("about.description")}
           </p>
         </div>
@@ -114,8 +115,8 @@ export default function ProfessionalSummary() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Information */}
           <div className="lg:col-span-1">
-            <Card className="p-6 h-fit">
-              <h3 className="text-xl font-semibold mb-6">{t("about.contactInfo")}</h3>
+            <Card className="h-fit p-6">
+              <h3 className="text-lg font-semibold tracking-tight mb-6">{t("about.contactInfo")}</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-muted-foreground" />
@@ -154,9 +155,9 @@ export default function ProfessionalSummary() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Experience */}
-            <Card className="p-6">
-              <h3 className="text-xl font-semibold mb-6">{t("about.experience")}</h3>
-              <div className="space-y-8">
+            <Card className="p-6 md:p-8">
+              <h3 className="mb-6 text-xl font-semibold">{t("about.experience")}</h3>
+              <div className="space-y-10">
                 {experiences.map((exp, index) => (
                   <div key={index} className="border-l-2 border-primary/20 pl-6">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
@@ -188,8 +189,8 @@ export default function ProfessionalSummary() {
             </Card>
 
             {/* Education */}
-            <Card className="p-6">
-              <h3 className="text-xl font-semibold mb-6">{t("about.education")}</h3>
+            <Card className="p-6 md:p-8">
+              <h3 className="text-lg font-semibold tracking-tight mb-8">{t("about.education")}</h3>
               <div className="space-y-6">
                 {education.map((edu, index) => (
                   <div key={index} className="border-l-2 border-primary/20 pl-6">
@@ -210,8 +211,8 @@ export default function ProfessionalSummary() {
             </Card>
 
             {/* Skills */}
-            <Card className="p-6">
-              <h3 className="text-xl font-semibold mb-6">{t("about.technicalSkills")}</h3>
+            <Card className="p-6 md:p-8">
+              <h3 className="text-lg font-semibold tracking-tight mb-8">{t("about.technicalSkills")}</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {skills.map((skill, index) => (
                   <div key={index}>

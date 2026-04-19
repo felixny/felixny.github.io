@@ -184,26 +184,30 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-24 px-6 lg:px-8">
+    <section id="skills" className="relative py-24 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            {t("skills.title")}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <div className="mb-16 max-w-3xl mx-auto text-center space-y-4">
+          <div className="flex justify-center">
+            <span className="section-label">{t("navigation.skills")}</span>
+          </div>
+          <h2 className="section-title">{t("skills.title")}</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
             {t("skills.subtitle")}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
-            <Card key={categoryIndex} className="p-6 hover:shadow-lg transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-6">{category.title}</h3>
+            <Card
+              key={categoryIndex}
+              className="p-6 transition-shadow duration-300 hover:shadow-md md:p-7"
+            >
+              <h3 className="text-lg font-semibold tracking-tight mb-6">{category.title}</h3>
               <div className="space-y-5">
                 {category.skills.map((skill, skillIndex) => (
                   <div 
                     key={skillIndex}
-                    className="group cursor-pointer"
+                    className="group relative cursor-pointer"
                     onMouseEnter={() => setHoveredSkill(skill.name)}
                     onMouseLeave={() => setHoveredSkill(null)}
                     onClick={() => setSelectedSkill(skill)}
@@ -237,7 +241,7 @@ export default function Skills() {
                     
                     {/* Hover tooltip */}
                     {hoveredSkill === skill.name && (
-                      <div className="absolute z-10 mt-2 p-3 bg-background border rounded-lg shadow-lg max-w-xs">
+                      <div className="absolute z-10 mt-2 max-w-xs rounded-xl border border-border/80 bg-popover/95 p-3 shadow-xl backdrop-blur-md">
                         <p className="text-sm text-muted-foreground">
                           {skill.description}
                         </p>
@@ -289,7 +293,7 @@ export default function Skills() {
                   </span>
                 </div>
                 
-                <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="h-2 w-full rounded-full bg-muted">
                   <div 
                     className={`h-2 rounded-full transition-all duration-500 ${getSkillColor(selectedSkill.level)}`}
                     style={{ width: `${selectedSkill.level}%` }}

@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Script from "next/script";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const fontSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Felix - Software Engineer Portfolio",
-  description: "Software Engineer specializing in Android, Frontend, and Backend development. Experience with Kotlin, React, Node.js, and modern web technologies.",
+  description:
+    "Software Engineer specializing in Android, Frontend, and Backend development. Experience with Kotlin, React, Node.js, and modern web technologies.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -16,10 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-        <html lang="en" suppressHydrationWarning>
-          <body className={inter.className}>
-            {children}
-          </body>
-        </html>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${fontSans.variable} font-sans`}>{children}</body>
+    </html>
   );
 }

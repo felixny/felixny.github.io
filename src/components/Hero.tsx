@@ -6,7 +6,12 @@ import { useTranslations } from "@/hooks/useTranslations";
 
 export default function Hero() {
   const { t } = useTranslations();
-  
+  const rawStack = String(t("hero.techStack"));
+  const heroTechSkills = rawStack
+    .split(",")
+    .map((s) => s.trim())
+    .filter((s): s is string => s.length > 0);
+
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -17,79 +22,120 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center px-6 lg:px-8 pt-16"
+      className="relative flex min-h-screen items-center overflow-hidden px-6 pb-16 pt-20 lg:px-8"
     >
-      <div className="max-w-4xl mx-auto text-center">
-        <div className="mb-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div className="text-center lg:text-left">
+          <div className="mb-5 flex justify-center lg:justify-start animate-fade-up">
+            <span className="section-label">{t("about.location")} · {t("hero.title")}</span>
+          </div>
+
+          <h1 className="mb-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl animate-fade-up [animation-delay:60ms]">
             {t("hero.name")}
           </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground mb-6">
+
+          <h2 className="mb-5 text-xl font-semibold text-primary sm:text-2xl md:text-3xl animate-fade-up [animation-delay:100ms]">
             {t("hero.title")}
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+
+          <p className="mb-9 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg md:text-xl mx-auto lg:mx-0 animate-fade-up [animation-delay:140ms]">
             {t("hero.description")}
           </p>
+
+          <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:justify-start animate-fade-up [animation-delay:180ms]">
+            <Button size="lg" onClick={scrollToContact} className="group h-11 px-8 text-base">
+              {t("hero.getInTouch")}
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => {
+                const element = document.getElementById("projects");
+                if (element) element.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="h-11 px-8 text-base"
+            >
+              {t("hero.viewProjects")}
+            </Button>
+          </div>
+
+          <div className="mt-9 flex flex-wrap justify-center gap-3 lg:justify-start animate-fade-up [animation-delay:220ms]">
+            <Button variant="outline" size="lg" asChild>
+              <a
+                href="https://github.com/felixny"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Github className="h-5 w-5" />
+                GitHub
+              </a>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
+              <a
+                href="https://www.linkedin.com/in/felixny/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <Linkedin className="h-5 w-5" />
+                LinkedIn
+              </a>
+            </Button>
+          </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
-          <Button
-            size="lg"
-            onClick={scrollToContact}
-            className="group text-base px-8"
-          >
-            {t("hero.getInTouch")}
-            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            onClick={() => {
-              const element = document.getElementById("projects");
-              if (element) element.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="text-base px-8"
-          >
-            {t("hero.viewProjects")}
-          </Button>
-        </div>
-
-        {/* Social Media Links */}
-        <div className="flex justify-center gap-4 mt-8 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-400">
-          <Button
-            variant="ghost"
-            size="lg"
-            asChild
-            className="group hover:bg-primary/10 transition-colors"
-          >
-            <a
-              href="https://github.com/felixny"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
-            >
-              <Github className="h-5 w-5" />
-              GitHub
-              <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100 transition-opacity" />
-            </a>
-          </Button>
-          <Button
-            variant="ghost"
-            size="lg"
-            asChild
-            className="group hover:bg-primary/10 transition-colors"
-          >
-            <a
-              href="https://www.linkedin.com/in/felixny/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2"
-            >
-              <Linkedin className="h-5 w-5" />
-              LinkedIn
-              <ExternalLink className="h-4 w-4 opacity-60 group-hover:opacity-100 transition-opacity" />
-            </a>
-          </Button>
+        <div className="relative hidden lg:block animate-fade-up [animation-delay:160ms]">
+          <div className="rounded-2xl border border-border bg-card p-7 shadow-md">
+            <div className="mb-6 flex items-start justify-between gap-4 border-b border-border pb-5">
+              <div>
+                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  {t("about.availability")}
+                </p>
+                <p className="mt-1 text-lg font-semibold text-foreground">{t("hero.title")}</p>
+              </div>
+            </div>
+            <dl className="space-y-4 text-sm">
+              <div className="flex justify-between gap-4">
+                <dt className="text-muted-foreground">{t("about.contactInfo")}</dt>
+                <dd className="text-right font-medium text-foreground">{t("about.email")}</dd>
+              </div>
+              <div className="flex justify-between gap-4">
+                <dt className="text-muted-foreground">{t("navigation.about")}</dt>
+                <dd className="text-right font-medium text-foreground">{t("about.location")}</dd>
+              </div>
+              <div className="border-t border-border pt-5">
+                <dt className="mb-3 text-muted-foreground">{t("about.technicalSkills")}</dt>
+                <dd className="m-0 flex flex-wrap justify-start gap-2">
+                  {heroTechSkills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="inline-flex rounded-md border border-border bg-muted/50 px-2.5 py-1 text-xs font-medium text-foreground"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            </dl>
+            <div className="mt-6 grid grid-cols-3 gap-2">
+              {(
+                [
+                  ["bentoMobile", t("hero.bentoMobile")],
+                  ["bentoApis", t("hero.bentoApis")],
+                  ["bentoWeb", t("hero.bentoWeb")],
+                ] as const
+              ).map(([key, label]) => (
+                <div
+                  key={key}
+                  className="rounded-lg border border-border bg-muted/40 px-2 py-2.5 text-center text-xs font-medium text-muted-foreground"
+                >
+                  {label}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

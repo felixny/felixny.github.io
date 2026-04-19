@@ -11,7 +11,11 @@
     "title": "ソフトウェアエンジニア",
     "description": "モダンな技術でエレガントなソリューションを構築。Android、フロントエンド、バックエンド開発を専門としています。",
     "getInTouch": "お問い合わせ",
-    "viewProjects": "プロジェクトを見る"
+    "viewProjects": "プロジェクトを見る",
+    "bentoMobile": "モバイル",
+    "bentoApis": "API",
+    "bentoWeb": "Web",
+    "techStack": "Kotlin, TypeScript, Node.js, GraphQL, Java, Android, React"
   },
   "about": {
     "title": "私について",
