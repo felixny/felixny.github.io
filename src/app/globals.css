@@ -79,6 +79,28 @@
 }
 
 @layer utilities {
+  /* Subtle SaaS-style background grid (Evenmint-inspired) */
+  .bg-page-grid {
+    background-image: linear-gradient(
+        to right,
+        hsl(var(--border) / 0.55) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, hsl(var(--border) / 0.55) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: center top;
+    mask-image: radial-gradient(
+      ellipse 85% 65% at 50% -5%,
+      black 38%,
+      transparent 72%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 85% 65% at 50% -5%,
+      black 38%,
+      transparent 72%
+    );
+  }
+
   .animate-in {
     animation: fadeIn 0.5s ease-in;
   }

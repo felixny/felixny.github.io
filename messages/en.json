@@ -15,7 +15,8 @@
     "bentoMobile": "Mobile",
     "bentoApis": "APIs",
     "bentoWeb": "Web",
-    "techStack": "Kotlin, TypeScript, Node.js, GraphQL, Java, Android, React"
+    "techStack": "Kotlin, TypeScript, Node.js, GraphQL, Java, Android, React",
+    "featuredBadge": "Featured · Evenmint"
   },
   "about": {
     "title": "About Me",
@@ -33,7 +34,22 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "subtitle": "Here are some of my recent projects that showcase my skills and passion for development.",
+    "subtitle": "Highlighted below: Evenmint — plus more builds from Android to ML.",
+    "evenmint": {
+      "badge": "Live on the web · Vercel + Supabase",
+      "description": "Household expense splitting without spreadsheet chaos: line items, weighted or equal splits, credits, payments, and settlement math—with read-only share links when someone just needs the numbers.",
+      "techStack": "Next.js, React, TypeScript, Tailwind CSS, Supabase, Vercel",
+      "ctaLive": "Visit live site",
+      "ctaMore": "More projects below",
+      "mockTitle": "March ledger",
+      "mockLedger": "Ledger",
+      "mockClosed": "Closed",
+      "mockRow1": "Utilities & rent stack ($412.00)",
+      "mockRow2": "Groceries ($186.40)",
+      "mockRow3": "Internet ($79.99)",
+      "mockMeta": "Equal split · 3 people",
+      "mockSettlement": "Settlement · who owes what"
+    },
     "travelApp": {
       "title": "Travel Bucket List & Info Hub",
       "description": "A full-stack web application for managing your travel bucket list with destination tracking, photo management, and travel planning features. Features modern glass morphism UI, AWS S3 integration, and external API integrations.",

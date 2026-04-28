@@ -5,6 +5,7 @@ import { Progress } from "@/components/ui/progress";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useTranslations } from "@/hooks/useTranslations";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 interface Skill {
   name: string;
@@ -186,18 +187,21 @@ export default function Skills() {
   return (
     <section id="skills" className="relative py-24 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 max-w-3xl mx-auto text-center space-y-4">
-          <div className="flex justify-center">
-            <span className="section-label">{t("navigation.skills")}</span>
+        <AnimateOnScroll className="mb-16">
+          <div className="max-w-3xl mx-auto text-center space-y-4">
+            <div className="flex justify-center">
+              <span className="section-label">{t("navigation.skills")}</span>
+            </div>
+            <h2 className="section-title">{t("skills.title")}</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {t("skills.subtitle")}
+            </p>
           </div>
-          <h2 className="section-title">{t("skills.title")}</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            {t("skills.subtitle")}
-          </p>
-        </div>
+        </AnimateOnScroll>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
+        <AnimateOnScroll delayMs={70}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skillCategories.map((category, categoryIndex) => (
             <Card
               key={categoryIndex}
               className="p-6 transition-shadow duration-300 hover:shadow-md md:p-7"
@@ -258,8 +262,9 @@ export default function Skills() {
                 ))}
               </div>
             </Card>
-          ))}
-        </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
 
         {/* Selected skill modal */}
         {selectedSkill && (

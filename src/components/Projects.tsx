@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useTranslations } from "@/hooks/useTranslations";
+import FeaturedEvenmint from "@/components/FeaturedEvenmint";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 interface Project {
   title: string;
@@ -93,21 +95,28 @@ export default function Projects() {
       className="relative border-y border-border bg-muted/30 py-24 px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 max-w-3xl mx-auto text-center space-y-4">
-          <div className="flex justify-center">
-            <span className="section-label">{t("navigation.projects")}</span>
+        <AnimateOnScroll className="mb-14 lg:mb-16">
+          <div className="max-w-3xl mx-auto text-center space-y-4">
+            <div className="flex justify-center">
+              <span className="section-label">{t("navigation.projects")}</span>
+            </div>
+            <h2 className="section-title">{t("projects.title")}</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {t("projects.subtitle")}
+            </p>
           </div>
-          <h2 className="section-title">{t("projects.title")}</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            {t("projects.subtitle")}
-          </p>
-        </div>
+        </AnimateOnScroll>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <FeaturedEvenmint />
+
+        <div
+          id="projects-grid"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="group overflow-hidden transition-shadow duration-300 hover:shadow-md"
+              className="group overflow-hidden transition-all duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-xl motion-safe:hover:shadow-primary/10 motion-reduce:hover:translate-y-0"
             >
               <div className="relative h-48 overflow-hidden bg-muted">
                 <img

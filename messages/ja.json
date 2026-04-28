@@ -15,7 +15,8 @@
     "bentoMobile": "モバイル",
     "bentoApis": "API",
     "bentoWeb": "Web",
-    "techStack": "Kotlin, TypeScript, Node.js, GraphQL, Java, Android, React"
+    "techStack": "Kotlin, TypeScript, Node.js, GraphQL, Java, Android, React",
+    "featuredBadge": "注目プロダクト · Evenmint"
   },
   "about": {
     "title": "私について",
@@ -33,7 +34,22 @@
   },
   "projects": {
     "title": "注目のプロジェクト",
-    "subtitle": "私のスキルと開発への情熱を示す最近のプロジェクトをご紹介します。",
+    "subtitle": "ハイライト: Evenmint をはじめ、Android から機械学習までの制作例です。",
+    "evenmint": {
+      "badge": "本番環境 · Vercel + Supabase",
+      "description": "スプレッドシートなしで共有家計を整理：明細、加重または均等割り、クレジット、支払い、清算計算に加え、数字だけ見せたい相手向けの読み取り専用リンクに対応。",
+      "techStack": "Next.js, React, TypeScript, Tailwind CSS, Supabase, Vercel",
+      "ctaLive": "本番サイトを見る",
+      "ctaMore": "ほかのプロジェクトへ",
+      "mockTitle": "3月レジャー",
+      "mockLedger": "レジャー",
+      "mockClosed": "確定済み",
+      "mockRow1": "光熱費・家賃 ($412.00)",
+      "mockRow2": "食料品 ($186.40)",
+      "mockRow3": "インターネット ($79.99)",
+      "mockMeta": "均等割り · 3名",
+      "mockSettlement": "精算 · 誰がいくら支払うか"
+    },
     "travelApp": {
       "title": "旅行バケットリスト＆情報ハブ",
       "description": "旅行バケットリストを管理するためのフルスタックWebアプリケーション。目的地の追跡、写真管理、旅行計画機能を備えています。モダンなグラスモーフィズムUI、AWS S3統合、外部API統合を特徴とします。",

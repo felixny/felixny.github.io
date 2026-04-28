@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
 import { useTranslations } from "@/hooks/useTranslations";
+import AnimateOnScroll from "@/components/AnimateOnScroll";
 
 export default function Contact() {
   const { t } = useTranslations();
@@ -96,102 +97,106 @@ export default function Contact() {
       className="relative border-t border-border bg-muted/30 py-24 px-6 lg:px-8"
     >
       <div className="max-w-3xl mx-auto">
-        <div className="mb-10 max-w-2xl mx-auto text-center space-y-3">
-          <div className="flex justify-center">
-            <span className="section-label">{t("navigation.contact")}</span>
+        <AnimateOnScroll className="mb-10">
+          <div className="max-w-2xl mx-auto text-center space-y-3">
+            <div className="flex justify-center">
+              <span className="section-label">{t("navigation.contact")}</span>
+            </div>
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <Mail className="h-6 w-6" />
+            </div>
+            <h2 className="section-title">{t("contact.title")}</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {t("contact.subtitle")}
+            </p>
           </div>
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-            <Mail className="h-6 w-6" />
-          </div>
-          <h2 className="section-title">{t("contact.title")}</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            {t("contact.subtitle")}
-          </p>
-        </div>
+        </AnimateOnScroll>
 
-        <Card className="p-8 md:p-9">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium mb-2"
+        <AnimateOnScroll delayMs={80}>
+          <Card className="p-8 md:p-9">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-2"
+                >
+                  {t("contact.name")}
+                </label>
+                <Input
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder={t("contact.namePlaceholder")}
+                  className={errors.name ? "border-destructive" : ""}
+                />
+                {errors.name && (
+                  <p className="text-sm text-destructive mt-1">{errors.name}</p>
+                )}
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2"
+                >
+                  {t("contact.email")}
+                </label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder={t("contact.emailPlaceholder")}
+                  className={errors.email ? "border-destructive" : ""}
+                />
+                {errors.email && (
+                  <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                )}
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2"
+                >
+                  {t("contact.message")}
+                </label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder={t("contact.messagePlaceholder")}
+                  rows={6}
+                  className={errors.message ? "border-destructive" : ""}
+                />
+                {errors.message && (
+                  <p className="text-sm text-destructive mt-1">
+                    {errors.message}
+                  </p>
+                )}
+              </div>
+
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full"
+                disabled={isSubmitting}
               >
-                {t("contact.name")}
-              </label>
-              <Input
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder={t("contact.namePlaceholder")}
-                className={errors.name ? "border-destructive" : ""}
-              />
-              {errors.name && (
-                <p className="text-sm text-destructive mt-1">{errors.name}</p>
-              )}
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium mb-2"
-              >
-                {t("contact.email")}
-              </label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder={t("contact.emailPlaceholder")}
-                className={errors.email ? "border-destructive" : ""}
-              />
-              {errors.email && (
-                <p className="text-sm text-destructive mt-1">{errors.email}</p>
-              )}
-            </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium mb-2"
-              >
-                {t("contact.message")}
-              </label>
-              <Textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder={t("contact.messagePlaceholder")}
-                rows={6}
-                className={errors.message ? "border-destructive" : ""}
-              />
-              {errors.message && (
-                <p className="text-sm text-destructive mt-1">
-                  {errors.message}
-                </p>
-              )}
-            </div>
-
-            <Button
-              type="submit"
-              size="lg"
-              className="w-full"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? (
-                t("contact.sending")
-              ) : (
-                <>
-                  {t("contact.sendMessage")}
-                  <Send className="ml-2 h-4 w-4" />
-                </>
-              )}
-            </Button>
-          </form>
-        </Card>
+                {isSubmitting ? (
+                  t("contact.sending")
+                ) : (
+                  <>
+                    {t("contact.sendMessage")}
+                    <Send className="ml-2 h-4 w-4" />
+                  </>
+                )}
+              </Button>
+            </form>
+          </Card>
+        </AnimateOnScroll>
       </div>
     </section>
   );

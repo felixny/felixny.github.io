@@ -17,6 +17,10 @@ export default function Page() {
         className="pointer-events-none fixed left-1/2 top-0 -z-10 h-[32rem] w-[min(56rem,100%)] -translate-x-1/2 rounded-full bg-primary/[0.07] blur-3xl"
         aria-hidden
       />
+      <div
+        className="pointer-events-none fixed inset-0 -z-10 bg-page-grid opacity-[0.35] dark:opacity-[0.22]"
+        aria-hidden
+      />
 
       <Navigation />
       <Hero />

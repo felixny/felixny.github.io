@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Github, Linkedin, ExternalLink } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "@/hooks/useTranslations";
 
@@ -26,7 +26,19 @@ export default function Hero() {
     >
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div className="text-center lg:text-left">
-          <div className="mb-5 flex justify-center lg:justify-start animate-fade-up">
+          <div className="mb-4 flex justify-center lg:justify-start animate-fade-up">
+            <a
+              href="https://evenmint.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-gradient-to-r from-primary/10 to-chart-2/10 px-4 py-2 text-sm font-medium text-primary shadow-sm transition-all motion-safe:hover:scale-[1.02] motion-safe:hover:shadow-md motion-reduce:hover:scale-100"
+            >
+              <Sparkles className="h-4 w-4 shrink-0" aria-hidden />
+              {t("hero.featuredBadge")}
+            </a>
+          </div>
+
+          <div className="mb-5 flex justify-center lg:justify-start animate-fade-up [animation-delay:40ms]">
             <span className="section-label">{t("about.location")} · {t("hero.title")}</span>
           </div>
 
