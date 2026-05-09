@@ -23,6 +23,7 @@
     "bentoApis": "API",
     "bentoWeb": "Web",
     "techStack": "Kotlin, TypeScript, Node.js, GraphQL, Java, Android, React, Vue, Angular",
+    "featuredBadge": "注目プロダクト · Evenmint",
     "projectsCue": "注目のプロジェクトはこちら"
   },
   "footer": {
