@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Github, Linkedin, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronDown, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "@/hooks/useTranslations";
 
@@ -28,13 +28,11 @@ export default function Hero() {
         <div className="text-center lg:text-left">
           <div className="mb-4 flex justify-center lg:justify-start animate-fade-up">
             <a
-              href="https://evenmint.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-gradient-to-r from-primary/10 to-chart-2/10 px-4 py-2 text-sm font-medium text-primary shadow-sm transition-all motion-safe:hover:scale-[1.02] motion-safe:hover:shadow-md motion-reduce:hover:scale-100"
+              href="#projects"
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
             >
-              <Sparkles className="h-4 w-4 shrink-0" aria-hidden />
-              {t("hero.featuredBadge")}
+              {t("hero.projectsCue")}
+              <ChevronDown className="h-4 w-4 shrink-0 opacity-70" aria-hidden />
             </a>
           </div>
 

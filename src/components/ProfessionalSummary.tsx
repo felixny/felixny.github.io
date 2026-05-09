@@ -2,7 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Download, Mail, MapPin, Phone, Calendar, ExternalLink } from "lucide-react";
+import { Download, Mail, MapPin, Calendar, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "@/hooks/useTranslations";
 
@@ -11,7 +11,8 @@ interface Experience {
   company: string;
   location: string;
   duration: string;
-  description: string[];
+  summary: string;
+  bullets: string[];
   technologies: string[];
 }
 
@@ -33,38 +34,59 @@ const experiences: Experience[] = [
     title: "Software Engineer",
     company: "Ahold Delhaize USA",
     location: "Quincy, MA",
-    duration: "Mar 2024 - Present",
-    description: [
-      "Designed and implemented scalable Android and backend features handling millions of customer interactions and real-time deal recommendations",
-      "Integrated third-party APIs (Chicory, Gambit) into distributed shopping and ad pipelines, boosting in-app revenue by 50%",
-      "Re-architected checkout and cart systems using GraphQL endpoints with caching layers, improving transaction reliability by 35% under peak load",
-      "Optimized memory usage and performance bottlenecks, increasing crash-free sessions by 40% and ensuring system stability at scale",
-      "Collaborated across backend, mobile, and product teams to deliver high-availability solutions and maintain production SLAs"
+    duration: "Apr 2024 - Present",
+    summary:
+      "I ship and maintain slices of production web applications shoppers use daily. The usual mix is React and TypeScript, backend APIs backed by relational data, merges moving through CI/CD, and pairing with design, QA, backend and product so regressions carry numbers behind them.",
+    bullets: [
+      "REST and GraphQL integrations emphasize validation parity, sane error payloads, guarded fallbacks and lightweight telemetry whenever partner hops slow down.",
+      "Production regressions routinely cross React surfaces, middleware and warehouses. Targeted SQL, log traces and dashboards stay paired with repro snippets QA reruns verbatim.",
+      "Advertising integrations tying Chicory and Gambit journeys into storefront experiences drove a documented one hundred percent lift in attributable in-app ad revenue backed by partner dashboards.",
     ],
-    technologies: ["Android", "GraphQL", "Java", "Kotlin", "REST APIs", "Caching", "Performance Optimization"]
+    technologies: [
+      "React",
+      "TypeScript",
+      "GraphQL",
+      "REST APIs",
+      "SQL",
+      "CI/CD",
+    ],
   },
   {
     title: "Software Engineer",
     company: "Peapod Digital Labs",
-    location: "Quincy, MA", 
+    location: "Quincy, MA",
     duration: "Jan 2023 - Mar 2024",
-    description: [
-      "Built and maintained GraphQL/REST services for Special Offers and Weekly Ads, enabling high-throughput data delivery to mobile and web clients",
-      "Developed scalable Android features with Dagger, Room, Retrofit, and Jetpack libraries, reducing cold start times by 25%",
-      "Optimized data caching and network layers to support concurrent users during promotional events with minimal latency"
+    summary:
+      "Weekly Ads-era product unfolded inside Scrum teams anchored on JavaScript, React, REST, GraphQL and relational databases. Frontend views, API contracts and validation finished before demos.",
+    bullets: [
+      "The slow order-history path floated around three to four seconds until query consolidation, fewer round trips and tighter caching kept common requests reliably under three hundred milliseconds in production.",
+      "Jest coverage, curated Postman collections, Cypress regression smoke plus CI asserts caught UI drift before merges.",
+      "Shared SQL validation scripts paired with sharper API signals cut repeat investigation latency about thirty percent once everyone replayed identical fixtures.",
     ],
-    technologies: ["GraphQL", "REST APIs", "Android", "Dagger", "Room", "Retrofit", "Jetpack", "Caching"]
+    technologies: [
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "GraphQL",
+      "REST APIs",
+      "SQL",
+      "Scrum",
+    ],
   },
   {
-    title: "Software Engineer Intern",
+    title: "Software Engineering Intern",
     company: "IDEMIA",
     location: "Billerica, MA",
     duration: "May 2022 - Sep 2022",
-    description: [
-      "Developed Bluetooth, NFC, and QR integrations for a secure Mobile ID system, enhancing verification speed and reliability"
+    summary:
+      "Hands-on internship on Mobile ID flows tying QR scans, NFC taps and Bluetooth readers to Android clients. Debugging meant handset logs plus tight defect write-ups.",
+    bullets: [
+      "Exercised NFC, QR and Bluetooth integrations against reader firmware builds.",
+      "Logged cross-device oddities early with repro assets so firmware and native owners could unblock quickly.",
+      "Captured edge cases straight from QA feedback without dropping reader state.",
     ],
-    technologies: ["Bluetooth", "NFC", "QR Code", "Mobile ID", "Security"]
-  }
+    technologies: ["Android", "NFC", "Bluetooth", "QR"],
+  },
 ];
 
 const education: Education[] = [
@@ -80,20 +102,31 @@ const education: Education[] = [
 const skills: Skill[] = [
   {
     category: "Programming Languages",
-    skills: ["Java", "Kotlin", "JavaScript", "TypeScript", "Python", "C++"]
+    skills: ["Java", "Kotlin", "JavaScript", "TypeScript", "Python", "C++"],
+  },
+  {
+    category: "Web Frameworks",
+    skills: ["React", "Next.js", "Vue.js", "Angular"],
   },
   {
     category: "Mobile Development",
-    skills: ["Android", "Jetpack Compose", "Room", "Retrofit", "Dagger", "RxJava"]
+    skills: ["Android", "Jetpack Compose", "Room", "Retrofit", "Dagger", "RxJava"],
   },
   {
-    category: "Backend Technologies", 
-    skills: ["GraphQL", "REST APIs", "Node.js", "Express.js", "Caching", "Performance Optimization"]
+    category: "Backend Technologies",
+    skills: [
+      "GraphQL",
+      "REST APIs",
+      "Node.js",
+      "Express.js",
+      "Caching",
+      "Performance Optimization",
+    ],
   },
   {
     category: "Tools & Platforms",
-    skills: ["Git", "Docker", "AWS", "Android Studio", "Postman", "VS Code"]
-  }
+    skills: ["Git", "Docker", "AWS", "Android Studio", "Postman", "VS Code"],
+  },
 ];
 
 export default function ProfessionalSummary() {
@@ -168,11 +201,14 @@ export default function ProfessionalSummary() {
                       <span className="font-medium text-primary">{exp.company}</span>
                       <span className="text-sm text-muted-foreground">• {exp.location}</span>
                     </div>
+                    <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
+                      {exp.summary}
+                    </p>
                     <ul className="space-y-2 mb-4">
-                      {exp.description.map((desc, idx) => (
+                      {exp.bullets.map((bullet, idx) => (
                         <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
                           <span className="text-primary mt-1.5">•</span>
-                          {desc}
+                          {bullet}
                         </li>
                       ))}
                     </ul>

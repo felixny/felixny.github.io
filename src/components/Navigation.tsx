@@ -37,6 +37,7 @@ export default function Navigation() {
 
   return (
     <nav
+      aria-label={t("a11y.primaryNav")}
       className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "border-b border-border bg-background/80 shadow-sm backdrop-blur-md"
@@ -46,18 +47,20 @@ export default function Navigation() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <button
+            type="button"
             onClick={() => scrollToSection("hero")}
-            className="text-lg font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80"
+            className="max-w-[min(100%,14rem)] truncate text-left text-lg font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:max-w-none rounded-sm"
           >
-            Portfolio
+            {t("navigation.brand")}
           </button>
 
           <div className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
               <button
                 key={item.id}
+                type="button"
                 onClick={() => scrollToSection(item.id)}
-                className="rounded-full px-3.5 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="rounded-full px-3.5 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 {item.label}
               </button>
@@ -68,8 +71,11 @@ export default function Navigation() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-nav-menu"
+            aria-label={isMobileMenuOpen ? t("a11y.closeMenu") : t("a11y.openMenu")}
           >
             {isMobileMenuOpen ? (
               <X className="h-5 w-5" />
@@ -79,22 +85,25 @@ export default function Navigation() {
           </Button>
         </div>
 
-        {isMobileMenuOpen && (
-          <div className="border-t border-border py-3 md:hidden">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="block w-full py-2.5 text-left text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {item.label}
-              </button>
-            ))}
-            <div className="px-1 py-2">
-              <LanguageSwitcher />
-            </div>
+        <div
+          id="mobile-nav-menu"
+          hidden={!isMobileMenuOpen}
+          className="border-t border-border py-3 md:hidden"
+        >
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => scrollToSection(item.id)}
+              className="block w-full rounded-sm py-2.5 text-left text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
+            >
+              {item.label}
+            </button>
+          ))}
+          <div className="px-1 py-2">
+            <LanguageSwitcher />
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

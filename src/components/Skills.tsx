@@ -83,6 +83,18 @@ const getSkillCategories = (t: any): SkillCategory[] => [
         projects: ["Travel Bucket List", "Portfolio Website"]
       },
       { 
+        name: "Vue.js", 
+        level: 92, 
+        description: "Progressive framework for building UIs and SPAs with the Composition API and modern tooling",
+        projects: ["Web Applications"]
+      },
+      { 
+        name: "Angular", 
+        level: 92, 
+        description: "TypeScript-first framework for structured SPAs with RxJS, dependency injection, and the Angular CLI",
+        projects: ["Enterprise Web"]
+      },
+      { 
         name: "TypeScript", 
         level: 90, 
         description: "Strongly typed JavaScript for scalable applications",

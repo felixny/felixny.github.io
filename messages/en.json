@@ -1,10 +1,17 @@
 {
   "navigation": {
+    "brand": "Felix Nampanya",
     "home": "Home",
     "about": "About",
     "projects": "Projects",
     "skills": "Skills",
     "contact": "Contact"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "primaryNav": "Primary navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "name": "Hi there, I'm Felix👋",
@@ -15,8 +22,13 @@
     "bentoMobile": "Mobile",
     "bentoApis": "APIs",
     "bentoWeb": "Web",
-    "techStack": "Kotlin, TypeScript, Node.js, GraphQL, Java, Android, React",
-    "featuredBadge": "Featured · Evenmint"
+    "techStack": "Kotlin, TypeScript, Node.js, GraphQL, Java, Android, React, Vue, Angular",
+    "projectsCue": "Featured work below"
+  },
+  "footer": {
+    "city": "Boston",
+    "visitGithub": "GitHub",
+    "visitLinkedin": "LinkedIn"
   },
   "about": {
     "title": "About Me",

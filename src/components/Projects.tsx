@@ -92,7 +92,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative border-y border-border bg-muted/30 py-24 px-6 lg:px-8"
+      className="relative scroll-mt-24 border-y border-border bg-muted/30 py-24 px-6 lg:px-8"
     >
       <div className="max-w-7xl mx-auto">
         <AnimateOnScroll className="mb-14 lg:mb-16">

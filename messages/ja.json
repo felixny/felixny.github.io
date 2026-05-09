@@ -1,10 +1,17 @@
 {
   "navigation": {
+    "brand": "Felix Nampanya",
     "home": "ホーム",
     "about": "概要",
     "projects": "プロジェクト",
     "skills": "スキル",
     "contact": "お問い合わせ"
+  },
+  "a11y": {
+    "skipToContent": "メインコンテンツへスキップ",
+    "primaryNav": "メインナビゲーション",
+    "openMenu": "メニューを開く",
+    "closeMenu": "メニューを閉じる"
   },
   "hero": {
     "name": "こんにちは、フェリックスです",
@@ -15,8 +22,13 @@
     "bentoMobile": "モバイル",
     "bentoApis": "API",
     "bentoWeb": "Web",
-    "techStack": "Kotlin, TypeScript, Node.js, GraphQL, Java, Android, React",
-    "featuredBadge": "注目プロダクト · Evenmint"
+    "techStack": "Kotlin, TypeScript, Node.js, GraphQL, Java, Android, React, Vue, Angular",
+    "projectsCue": "注目のプロジェクトはこちら"
+  },
+  "footer": {
+    "city": "ボストン",
+    "visitGithub": "GitHub",
+    "visitLinkedin": "LinkedIn"
   },
   "about": {
     "title": "私について",

@@ -70,6 +70,41 @@
 }
 
 @layer components {
+  /* WCAG-friendly skip link: hidden until keyboard focus */
+  .skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .skip-link:focus {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: 100;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    padding: 0.625rem 1rem;
+    border-radius: calc(var(--radius) - 2px);
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    box-shadow:
+      0 10px 15px -3px hsl(0 0% 0% / 0.1),
+      0 4px 6px -4px hsl(0 0% 0% / 0.1);
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
   .section-label {
     @apply inline-flex items-center gap-2 rounded-full border border-border bg-muted/60 px-3 py-1 text-[11px] font-medium uppercase tracking-widest text-muted-foreground;
   }

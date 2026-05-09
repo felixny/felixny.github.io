@@ -4,6 +4,7 @@ import ProfessionalSummary from "@/components/ProfessionalSummary";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
+import SiteFooter from "@/components/SiteFooter";
 import { Toaster } from "@/components/ui/toaster";
 
 export default function Page() {
@@ -23,15 +24,15 @@ export default function Page() {
       />
 
       <Navigation />
-      <Hero />
-      <ProfessionalSummary />
-      <Projects />
-      <Skills />
-      <Contact />
+      <main id="main-content" tabIndex={-1} className="scroll-mt-24 outline-none">
+        <Hero />
+        <ProfessionalSummary />
+        <Projects />
+        <Skills />
+        <Contact />
 
-      <footer className="border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
-        Felix Nampanya · Boston
-      </footer>
+        <SiteFooter />
+      </main>
 
       <Toaster />
     </div>
