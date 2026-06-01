@@ -72,10 +72,14 @@ type Destination = {
   id: string;
   name: string;
   country: string;
-  region: string;
-  category: string;
+  region: "Asia" | "Europe" | "Americas" | "Africa" | "Oceania" | "Middle East";
+  category: "City" | "Nature" | "Beach" | "Culture" | "Food" | "Adventure";
+  description: string;
+  highlight: string;
+  bestMonth: string;
+  tags: string[];
+  hotspot: boolean;
   saved: boolean;
-  note: string;
 };
 
 type PulseMode = "Fintech" | "Sports" | "Rewards";
@@ -570,7 +574,7 @@ export default function ProductLab() {
               <IdentityBlock compact />
               <span className="product-lab-mono text-sm text-[var(--lab-gold)]">☰</span>
             </div>
-            <div className="mt-3 flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Projects">
+            <div className="no-scrollbar mt-3 flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Projects">
               {projects.map((project) => (
                 <button
                   key={project.id}
@@ -1439,27 +1443,106 @@ function EvenmintDemo({ onInteraction }: { onInteraction: (note: LabNote) => voi
   );
 }
 
+function travelDestinations(): Destination[] {
+  const rows = [
+    ["tokyo", "Tokyo", "Japan", "Asia", "City", "Temples, ramen, precision transit and neon at night.", "Cherry blossoms in April", "Mar-May", ["temples", "ramen", "transit", "neon"], true],
+    ["kyoto", "Kyoto", "Japan", "Asia", "Culture", "Shrines, machiya lanes, tea houses and quiet garden paths.", "Arashiyama mornings before the crowds", "Oct-Nov", ["shrines", "tea", "gardens", "heritage"], true],
+    ["osaka", "Osaka", "Japan", "Asia", "Food", "Street food, comedy, castle parks and late-night shopping arcades.", "Takoyaki in Dotonbori after dark", "Mar-May", ["takoyaki", "arcades", "nightlife"], false],
+    ["seoul", "Seoul", "South Korea", "Asia", "City", "Palaces, design districts, mountain hikes and all-night food streets.", "Bukchon hanok rooftops at sunset", "Apr-Jun", ["palaces", "k-food", "design"], false],
+    ["taipei", "Taipei", "Taiwan", "Asia", "Food", "Night markets, hot springs, scooter lanes and forested city edges.", "Beef noodle crawl in Da'an", "Oct-Dec", ["night markets", "tea", "hot springs"], false],
+    ["singapore", "Singapore", "Singapore", "Asia", "Food", "Hawker centers, gardens, tropical architecture and frictionless transit.", "Supertree lights from Marina Bay", "Feb-Apr", ["hawker", "gardens", "transit"], false],
+    ["bangkok", "Bangkok", "Thailand", "Asia", "Food", "Canals, temples, rooftop views and fragrant street kitchens.", "Longtail boat ride through Thonburi", "Nov-Feb", ["temples", "street food", "markets"], false],
+    ["bali", "Bali", "Indonesia", "Asia", "Beach", "Rice terraces, surf breaks, temple ceremonies and quiet stays.", "Ubud terraces after rain", "May-Sep", ["surf", "temples", "rice fields"], true],
+    ["ho-chi-minh", "Ho Chi Minh City", "Vietnam", "Asia", "Food", "Motorbike rivers, cafe culture, markets and layered history.", "Banh mi breakfast in District 1", "Dec-Mar", ["cafes", "markets", "history"], false],
+    ["hanoi", "Hanoi", "Vietnam", "Asia", "Culture", "Lakeside mornings, old-quarter alleys and slow bowls of pho.", "Train Street cafe timing", "Oct-Apr", ["old quarter", "pho", "lakes"], false],
+    ["chiang-mai", "Chiang Mai", "Thailand", "Asia", "Culture", "Mountain temples, craft markets and northern Thai food.", "Lantern season in November", "Nov-Feb", ["temples", "craft", "mountains"], false],
+    ["kathmandu", "Kathmandu", "Nepal", "Asia", "Adventure", "Stupas, trekking outfitters and Himalayan light over courtyards.", "Boudhanath at blue hour", "Oct-Nov", ["trekking", "stupas", "himalaya"], false],
+    ["mumbai", "Mumbai", "India", "Asia", "City", "Art deco facades, sea breezes, markets and cinema energy.", "Marine Drive monsoon skies", "Nov-Feb", ["markets", "cinema", "coast"], false],
+    ["rajasthan", "Rajasthan", "India", "Asia", "Culture", "Desert forts, painted havelis and royal train routes.", "Jodhpur blue city viewpoints", "Oct-Mar", ["forts", "desert", "heritage"], false],
+    ["maldives", "Maldives", "Maldives", "Asia", "Beach", "Overwater villas, reef drop-offs and clear lagoon mornings.", "Manta season in Baa Atoll", "Jan-Apr", ["reefs", "manta", "lagoon"], false],
+    ["hokkaido", "Hokkaido", "Japan", "Asia", "Nature", "Powder snow, flower fields, seafood markets and open roads.", "Lavender fields in Furano", "Jul-Aug", ["snow", "seafood", "roadtrip"], false],
+    ["okinawa", "Okinawa", "Japan", "Asia", "Beach", "Coral water, island food, castle ruins and slow coastal drives.", "Kerama blue snorkeling", "Apr-Jun", ["coral", "islands", "beaches"], true],
+    ["paris", "Paris", "France", "Europe", "Culture", "Museums, cafes, river walks and precise neighborhood rituals.", "Late museum nights at the Louvre", "Apr-Jun", ["museums", "cafes", "design"], false],
+    ["rome", "Rome", "Italy", "Europe", "Culture", "Ancient ruins, espresso counters and warm stone streets.", "Forum views near golden hour", "Apr-May", ["ruins", "espresso", "piazzas"], false],
+    ["barcelona", "Barcelona", "Spain", "Europe", "Culture", "Modernist buildings, markets, beaches and late dinners.", "Gaudi rooftops in morning light", "May-Jun", ["gaudi", "markets", "beach"], false],
+    ["lisbon", "Lisbon", "Portugal", "Europe", "City", "Tile facades, hill trams, viewpoints and Atlantic light.", "Alfama tram bells at dusk", "Mar-Jun", ["tiles", "trams", "viewpoints"], true],
+    ["amsterdam", "Amsterdam", "Netherlands", "Europe", "City", "Canals, bikes, design shops and intimate museums.", "Canal houses during tulip season", "Apr-May", ["canals", "bikes", "museums"], false],
+    ["prague", "Prague", "Czechia", "Europe", "Culture", "Gothic lanes, river bridges and old-world beer halls.", "Charles Bridge before sunrise", "May-Sep", ["bridges", "beer", "gothic"], false],
+    ["vienna", "Vienna", "Austria", "Europe", "Culture", "Coffee houses, opera, palaces and elegant transit.", "Sachertorte between museums", "Apr-Jun", ["opera", "coffee", "palaces"], false],
+    ["budapest", "Budapest", "Hungary", "Europe", "Culture", "Thermal baths, ruin bars and grand riverfront architecture.", "Szechenyi baths in winter steam", "May-Jun", ["baths", "ruin bars", "danube"], false],
+    ["santorini", "Santorini", "Greece", "Europe", "Beach", "White villages, volcanic cliffs and blue Aegean evenings.", "Caldera sunset from Imerovigli", "May-Jun", ["caldera", "sunset", "islands"], true],
+    ["amalfi-coast", "Amalfi Coast", "Italy", "Europe", "Beach", "Cliff roads, lemon groves and sea-view villages.", "Path of the Gods hike", "May-Jun", ["lemons", "cliffs", "hiking"], false],
+    ["dubrovnik", "Dubrovnik", "Croatia", "Europe", "Culture", "Stone walls, Adriatic swims and orange-roofed views.", "City walls at opening hour", "May-Jun", ["walls", "adriatic", "old town"], false],
+    ["edinburgh", "Edinburgh", "Scotland", "Europe", "Culture", "Castle ridges, bookshops, closes and moody hills.", "Arthur's Seat after rain", "Aug-Sep", ["castle", "books", "hills"], false],
+    ["reykjavik", "Reykjavik", "Iceland", "Europe", "Nature", "Colorful streets, geothermal pools and wild day trips.", "Northern lights outside the city", "Sep-Mar", ["aurora", "pools", "roadtrip"], true],
+    ["copenhagen", "Copenhagen", "Denmark", "Europe", "City", "Harbor swims, design cafes and bike-first streets.", "Nyhavn in soft summer light", "Jun-Aug", ["design", "bikes", "harbor"], false],
+    ["porto", "Porto", "Portugal", "Europe", "Food", "River bridges, azulejos, wine cellars and steep alleys.", "Douro sunset from Gaia", "Apr-Jun", ["azulejos", "wine", "bridges"], false],
+    ["berlin", "Berlin", "Germany", "Europe", "City", "Galleries, clubs, modern history and generous public space.", "Museum Island after a gallery crawl", "May-Sep", ["galleries", "history", "nightlife"], false],
+    ["stockholm", "Stockholm", "Sweden", "Europe", "City", "Island neighborhoods, subway art and cold-water edges.", "Archipelago ferry day trip", "Jun-Aug", ["islands", "design", "ferries"], false],
+    ["new-york", "New York", "United States", "Americas", "City", "Neighborhood energy, museums, food walks and skyline drama.", "Dumplings in Flushing, jazz downtown", "Apr-Jun", ["museums", "food", "skyline"], false],
+    ["san-francisco", "San Francisco", "United States", "Americas", "City", "Fog, hills, bookstores, ferries and Pacific-edge views.", "Golden Gate fog at sunrise", "Sep-Oct", ["fog", "ferries", "bookstores"], false],
+    ["new-orleans", "New Orleans", "United States", "Americas", "Food", "Brass bands, Creole kitchens and porch-lit neighborhoods.", "Frenchmen Street after dinner", "Feb-Apr", ["jazz", "creole", "parades"], true],
+    ["mexico-city", "Mexico City", "Mexico", "Americas", "Food", "Markets, museums, parks and layered neighborhoods.", "Tacos al pastor after museum day", "Mar-May", ["markets", "museums", "tacos"], false],
+    ["havana", "Havana", "Cuba", "Americas", "Culture", "Pastel streets, live music and ocean-wall evenings.", "Malecon sunset with music nearby", "Nov-Apr", ["music", "old cars", "seawall"], false],
+    ["buenos-aires", "Buenos Aires", "Argentina", "Americas", "Culture", "Bookshops, steak houses, tango halls and leafy avenues.", "El Ateneo bookshop afternoon", "Mar-May", ["tango", "bookshops", "steak"], false],
+    ["rio", "Rio de Janeiro", "Brazil", "Americas", "Beach", "Granite peaks, samba, city beaches and forested overlooks.", "Sugarloaf at sunset", "May-Sep", ["samba", "beaches", "views"], false],
+    ["cartagena", "Cartagena", "Colombia", "Americas", "Culture", "Colorful walls, Caribbean plazas and tropical nights.", "Getsemani murals and music", "Dec-Apr", ["walls", "caribbean", "murals"], true],
+    ["patagonia", "Patagonia", "Argentina/Chile", "Americas", "Adventure", "Glacier lakes, wind, granite towers and long trail days.", "Torres del Paine sunrise", "Nov-Mar", ["glaciers", "trekking", "mountains"], true],
+    ["machu-picchu", "Machu Picchu", "Peru", "Americas", "Adventure", "Cloud forest trails and Inca stonework above the valley.", "First bus arrival at the citadel", "May-Sep", ["inca", "trekking", "ruins"], false],
+    ["vancouver", "Vancouver", "Canada", "Americas", "Nature", "Sea walls, mountain views and excellent Asian food.", "Stanley Park seawall at golden hour", "Jun-Sep", ["mountains", "seawall", "sushi"], false],
+    ["quebec-city", "Quebec City", "Canada", "Americas", "Culture", "Fortified streets, winter light and French Canadian kitchens.", "Old Quebec after snowfall", "Dec-Feb", ["winter", "old town", "french"], false],
+    ["marrakech", "Marrakech", "Morocco", "Africa", "Culture", "Medina lanes, riads, gardens and spice-market color.", "Jardin Majorelle blue walls", "Mar-May", ["medina", "riads", "spices"], true],
+    ["cape-town", "Cape Town", "South Africa", "Africa", "Nature", "Mountain-backed beaches, wine valleys and coastal drives.", "Table Mountain cableway at sunset", "Nov-Mar", ["mountains", "wine", "coast"], true],
+    ["zanzibar", "Zanzibar", "Tanzania", "Africa", "Beach", "Spice islands, dhow sails and pale sand shallows.", "Stone Town spice market morning", "Jun-Oct", ["spices", "beaches", "dhows"], false],
+    ["serengeti", "Serengeti", "Tanzania", "Africa", "Adventure", "Open plains, migration crossings and dawn game drives.", "Great migration river crossing", "Jun-Oct", ["safari", "migration", "wildlife"], false],
+    ["cairo", "Cairo", "Egypt", "Africa", "Culture", "Pyramids, museums, Nile views and dense market streets.", "Giza plateau before noon heat", "Oct-Apr", ["pyramids", "museums", "nile"], false],
+    ["fez", "Fez", "Morocco", "Africa", "Culture", "Medieval alleys, tanneries and craft workshops.", "Chouara tannery from a rooftop", "Mar-May", ["craft", "medina", "tanneries"], false],
+    ["sydney", "Sydney", "Australia", "Oceania", "Beach", "Harbor icons, coastal walks and sunny neighborhood cafes.", "Bondi to Coogee walk", "Sep-Nov", ["harbor", "beaches", "cafes"], false],
+    ["new-zealand-south", "New Zealand South Island", "New Zealand", "Oceania", "Nature", "Fiords, alpine roads, lakes and cinematic trailheads.", "Milford Sound after rainfall", "Dec-Mar", ["fiords", "lakes", "roadtrip"], false],
+    ["queenstown", "Queenstown", "New Zealand", "Oceania", "Adventure", "Lake views, alpine sports and adrenaline day trips.", "Remarkables snow line over Wakatipu", "Dec-Feb", ["adventure", "alpine", "lake"], false],
+    ["melbourne", "Melbourne", "Australia", "Oceania", "Food", "Laneways, coffee, galleries and tram-lined neighborhoods.", "Flat white crawl through Fitzroy", "Mar-May", ["coffee", "laneways", "trams"], false],
+    ["petra", "Petra", "Jordan", "Middle East", "Culture", "Rose-red cliffs, Nabataean facades and desert silence.", "Treasury reveal through the Siq", "Mar-May", ["desert", "ruins", "hiking"], false],
+    ["dubai", "Dubai", "United Arab Emirates", "Middle East", "City", "Future skyline, desert drives and polished hospitality.", "Desert dunes after the city", "Nov-Mar", ["skyline", "desert", "shopping"], false],
+    ["istanbul", "Istanbul", "Turkey", "Middle East", "Culture", "Mosques, ferries, bazaars and two-continent evenings.", "Bosphorus ferry at sunset", "Apr-Jun", ["bazaars", "ferries", "mosques"], false],
+    ["oman", "Muscat", "Oman", "Middle East", "Nature", "Whitewashed forts, wadis, beaches and mountain roads.", "Wadi Shab swim after a hike", "Oct-Mar", ["wadis", "forts", "coast"], false],
+  ] as const;
+
+  return rows.map(([id, name, country, region, category, description, highlight, bestMonth, tags, hotspot]) => ({
+    id,
+    name,
+    country,
+    region,
+    category,
+    description,
+    highlight,
+    bestMonth,
+    tags: [...tags],
+    hotspot,
+    saved: id === "tokyo" || id === "reykjavik",
+  }));
+}
+
 function TravelDemo() {
-  const [destinations, setDestinations] = useState<Destination[]>([
-    { id: "tokyo", name: "Tokyo", country: "Japan", region: "Asia", category: "City", saved: true, note: "Food, rail, small design details." },
-    { id: "iceland", name: "Iceland", country: "Iceland", region: "Europe", category: "Nature", saved: false, note: "Road trip and northern lights window." },
-    { id: "cape-town", name: "Cape Town", country: "South Africa", region: "Africa", category: "Nature", saved: true, note: "Coast, mountain, local food." },
-    { id: "barcelona", name: "Barcelona", country: "Spain", region: "Europe", category: "Culture", saved: false, note: "Architecture, markets, beach days." },
-    { id: "bali", name: "Bali", country: "Indonesia", region: "Asia", category: "Beach", saved: false, note: "Quiet stays and rice terraces." },
-  ]);
+  const [destinations, setDestinations] = useState<Destination[]>(travelDestinations);
   const [query, setQuery] = useState("");
   const [region, setRegion] = useState("All");
   const [category, setCategory] = useState("All");
-  const [selectedId, setSelectedId] = useState("tokyo");
+  const [savedOnly, setSavedOnly] = useState(false);
+  const [view, setView] = useState<"grid" | "list">("grid");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const hotspotRef = useRef<HTMLDivElement | null>(null);
 
   const filtered = destinations.filter((destination) => {
-    const matchesQuery = `${destination.name} ${destination.country} ${destination.note}`.toLowerCase().includes(query.toLowerCase());
+    const haystack = `${destination.name} ${destination.country} ${destination.description} ${destination.tags.join(" ")}`.toLowerCase();
+    const matchesQuery = haystack.includes(query.toLowerCase());
     const matchesRegion = region === "All" || destination.region === region;
     const matchesCategory = category === "All" || destination.category === category;
-    return matchesQuery && matchesRegion && matchesCategory;
+    const matchesSaved = !savedOnly || destination.saved;
+    return matchesQuery && matchesRegion && matchesCategory && matchesSaved;
   });
-  const selected = destinations.find((destination) => destination.id === selectedId) ?? filtered[0] ?? destinations[0];
-  const savedCount = destinations.filter((destination) => destination.saved).length;
+  const selected = selectedId ? destinations.find((destination) => destination.id === selectedId) ?? null : null;
+  const saved = destinations.filter((destination) => destination.saved);
+  const hotspots = destinations.filter((destination) => destination.hotspot);
 
   function toggleSaved(id: string) {
     setDestinations((current) =>
@@ -1469,82 +1552,241 @@ function TravelDemo() {
     );
   }
 
+  function openDestination(id: string) {
+    setSelectedId(id);
+    window.requestAnimationFrame(() => document.getElementById(`travel-${id}`)?.scrollIntoView({ block: "center", behavior: "smooth" }));
+  }
+
+  function scrollHotspots(direction: -1 | 1) {
+    hotspotRef.current?.scrollBy({ left: direction * 260, behavior: "smooth" });
+  }
+
   return (
-    <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_360px]">
-      <section className={panelClass("p-4 sm:p-5")}>
+    <div className="space-y-5">
+      <section className={panelClass("p-4 sm:p-5")}> 
         <div className="flex flex-wrap items-center justify-between gap-3">
           <PanelTitle icon={Map} title="Destination Browser" />
-          <div className="rounded-full bg-[#C9A84C]/10 px-3 py-1 text-sm font-black text-[#C0392B]">
-            {savedCount} saved
+          <div className="product-lab-mono text-xs text-[var(--lab-muted)]">
+            {filtered.length} destinations · {saved.length} saved
           </div>
         </div>
-        <div className="mt-4 grid gap-3 md:grid-cols-[1fr_150px_150px]">
-          <label className="relative">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#E8E4DC]/40" />
+        <div className="mt-4 flex gap-2">
+          <label className="relative min-w-0 flex-1">
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--lab-muted)]" />
             <input
-              className={inputClass("w-full pl-9")}
+              className={inputClass("w-full pl-9 pr-10")}
               value={query}
-              placeholder="Search destinations"
+              placeholder="Search destinations, countries, tags..."
               onChange={(event) => setQuery(event.target.value)}
             />
+            {query ? (
+              <button className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--lab-muted)]" onClick={() => setQuery("")}>
+                ×
+              </button>
+            ) : null}
           </label>
-          <select className={inputClass()} value={region} onChange={(event) => setRegion(event.target.value)}>
-            {["All", "Asia", "Europe", "Africa"].map((item) => (
-              <option key={item}>{item}</option>
-            ))}
-          </select>
-          <select className={inputClass()} value={category} onChange={(event) => setCategory(event.target.value)}>
-            {["All", "City", "Nature", "Culture", "Beach"].map((item) => (
-              <option key={item}>{item}</option>
-            ))}
-          </select>
+          <button className={buttonClass(view === "grid")} onClick={() => setView("grid")}>Grid</button>
+          <button className={buttonClass(view === "list")} onClick={() => setView("list")}>List</button>
         </div>
-        <div className="mt-5 grid gap-3 md:grid-cols-2">
-          {filtered.map((destination) => (
-            <button
-              key={destination.id}
-              className={`rounded-lg border p-4 text-left transition ${
-                selected.id === destination.id
-                  ? "border-[#C9A84C] bg-[#13131A]"
-                  : "border-[#2A292E] bg-[#13131A] hover:border-[#C9A84C]/60"
-              }`}
-              onClick={() => setSelectedId(destination.id)}
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <div className="text-lg font-black">{destination.name}</div>
-                  <div className="mt-1 text-sm text-[#E8E4DC]/40">{destination.country}</div>
-                </div>
-                <span className="rounded-full bg-[#1A1A24] px-2.5 py-1 text-xs font-black text-[#E8E4DC]/40">
-                  {destination.category}
-                </span>
-              </div>
-              <p className="mt-3 text-sm leading-6 text-[#E8E4DC]/40">{destination.note}</p>
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#E8E4DC]/40">{destination.region}</span>
-                <span className={destination.saved ? "text-[#2EA043]" : "text-[#E8E4DC]/40"}>
-                  <Save className="h-4 w-4" />
-                </span>
-              </div>
+        <FilterRow label="Region" values={["All", "Asia", "Europe", "Americas", "Africa", "Oceania", "Middle East"]} active={region} onChange={(value) => setRegion(value)} />
+        <FilterRow label="Category" values={["All", "City", "Nature", "Beach", "Culture", "Food", "Adventure"]} active={category} onChange={(value) => setCategory(value)} />
+        {saved.length > 0 ? (
+          <button className={buttonClass(savedOnly, "mt-3")} onClick={() => setSavedOnly((current) => !current)}>
+            Saved only · {saved.length}
+          </button>
+        ) : null}
+      </section>
+
+      <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(340px,40%)]">
+        <section className={panelClass("p-4 sm:p-5")}> 
+          <div className="product-lab-mono mb-3 flex items-center gap-3 text-[10px] uppercase tracking-[0.22em] text-[var(--lab-gold)]">
+            <span>Hotspots · おすすめ</span>
+            <span className="hidden text-[9px] normal-case tracking-[0.08em] text-[var(--lab-muted)] sm:inline">
+              drag or use arrows
+            </span>
+            <span className="h-px flex-1 bg-[var(--lab-border)]" />
+            <span className="flex gap-1">
+              <button
+                className="grid h-7 w-7 place-items-center rounded-full border border-[var(--lab-border)] text-[var(--lab-muted)] transition hover:border-[var(--lab-gold)] hover:text-[var(--lab-gold)]"
+                onClick={() => scrollHotspots(-1)}
+                aria-label="Scroll hotspots left"
+              >
+                ←
+              </button>
+              <button
+                className="grid h-7 w-7 place-items-center rounded-full border border-[var(--lab-border)] text-[var(--lab-muted)] transition hover:border-[var(--lab-gold)] hover:text-[var(--lab-gold)]"
+                onClick={() => scrollHotspots(1)}
+                aria-label="Scroll hotspots right"
+              >
+                →
+              </button>
+            </span>
+          </div>
+          <div className="hotspot-chips-wrapper">
+            <div ref={hotspotRef} className="hotspot-chips-container no-scrollbar flex gap-2 overflow-x-auto pb-3">
+              {hotspots.map((destination) => (
+                <button key={destination.id} className="travel-hotspot product-lab-mono shrink-0 rounded-full border border-[var(--lab-gold)]/25 bg-[var(--lab-gold)]/8 px-3 py-2 text-xs text-[var(--lab-gold)]" onClick={() => openDestination(destination.id)}>
+                  {destination.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {filtered.length === 0 ? (
+            <div className="mt-5 rounded-xl border border-[var(--lab-border)] bg-[var(--lab-surface)] p-8 text-center">
+              <div className="text-lg font-semibold">No destinations found for "{query}"</div>
+              <p className="mt-2 text-sm text-[var(--lab-muted)]">Try a different search or clear filters.</p>
+            </div>
+          ) : (
+            <div className={`mt-4 grid gap-3 ${view === "grid" ? "md:grid-cols-2" : "grid-cols-1"}`}>
+              {filtered.map((destination, index) => (
+                <DestinationCard
+                  key={destination.id}
+                  destination={destination}
+                  selected={selected?.id === destination.id}
+                  list={view === "list"}
+                  index={index}
+                  onOpen={() => openDestination(destination.id)}
+                  onToggleSaved={() => toggleSaved(destination.id)}
+                />
+              ))}
+            </div>
+          )}
+        </section>
+
+        <aside className="product-lab-panel-enter sticky top-6 self-start">
+          {selected ? (
+            <DestinationDetail
+              destination={selected}
+              saved={selected.saved}
+              similar={destinations.filter((item) => item.id !== selected.id && (item.region === selected.region || item.category === selected.category)).slice(0, 3)}
+              onToggleSaved={() => toggleSaved(selected.id)}
+              onOpen={openDestination}
+            />
+          ) : (
+            <TripPlanner saved={saved} onOpen={openDestination} onRemove={toggleSaved} />
+          )}
+        </aside>
+      </div>
+    </div>
+  );
+}
+
+function FilterRow({ label, values, active, onChange }: { label: string; values: string[]; active: string; onChange: (value: string) => void }) {
+  return (
+    <div className="no-scrollbar mt-3 flex items-center gap-3 overflow-x-auto pb-1">
+      <span className="product-lab-mono shrink-0 text-[10px] uppercase tracking-[0.16em] text-[var(--lab-muted)]">{label}</span>
+      {values.map((value) => (
+        <button
+          key={value}
+          className={`product-lab-mono shrink-0 rounded-full border px-3 py-1.5 text-[10px] transition ${
+            active === value
+              ? "border-[var(--lab-gold)] bg-[var(--lab-gold)] text-[var(--lab-bg)]"
+              : "border-[var(--lab-border)] text-[var(--lab-muted)] hover:border-[rgba(245,240,230,0.14)] hover:text-[var(--lab-text)]"
+          }`}
+          onClick={() => onChange(value)}
+        >
+          {value}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function DestinationCard({ destination, selected, list, index, onOpen, onToggleSaved }: { destination: Destination; selected: boolean; list: boolean; index: number; onOpen: () => void; onToggleSaved: () => void }) {
+  return (
+    <div
+      id={`travel-${destination.id}`}
+      className={`product-lab-stagger group rounded-xl border bg-[var(--lab-surface)] p-4 text-left transition duration-300 hover:-translate-y-0.5 hover:border-[rgba(245,240,230,0.14)] ${
+        selected ? "border-[var(--lab-gold)]" : "border-[var(--lab-border)]"
+      } ${destination.saved ? "border-l-[3px] border-l-[var(--lab-red)]" : ""} ${list ? "grid gap-3 md:grid-cols-[1fr_auto]" : ""}`}
+      style={{ animationDelay: `${Math.min(index, 16) * 30}ms` }}
+    >
+      <button className="block w-full text-left" onClick={onOpen}>
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <div className="product-lab-display text-2xl font-medium text-[var(--lab-text)]">{destination.name}</div>
+            <div className="mt-1 text-sm text-[var(--lab-muted)]">{destination.country} · {destination.region}</div>
+          </div>
+          <span className="product-lab-mono rounded-full bg-[var(--lab-surface-2)] px-2.5 py-1 text-[10px] text-[var(--lab-muted)]">{destination.category}</span>
+        </div>
+        <p className="mt-3 text-sm leading-6 text-[var(--lab-muted)]">{destination.description}</p>
+        <div className="mt-3 text-sm text-[var(--lab-gold)]">✨ {destination.highlight}</div>
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {destination.tags.map((tag) => <span key={tag} className="rounded-full border border-[var(--lab-border)] px-2 py-1 text-[10px] text-[var(--lab-muted)]">{tag}</span>)}
+        </div>
+      </button>
+      <div className="mt-4 flex items-center justify-between gap-3">
+        <span className="product-lab-mono text-[10px] uppercase tracking-[0.12em] text-[var(--lab-muted)]">Best: {destination.bestMonth}</span>
+        <span className="flex gap-2">
+          <button className={`travel-heart grid h-9 w-9 place-items-center rounded-full border border-[var(--lab-border)] ${destination.saved ? "text-[var(--lab-red)]" : "text-[var(--lab-muted)]"}`} onClick={onToggleSaved} aria-label="Save destination">
+            {destination.saved ? "♥" : "♡"}
+          </button>
+          <button className="grid h-9 w-9 place-items-center rounded-full border border-[var(--lab-border)] text-[var(--lab-gold)]" onClick={onOpen} aria-label="Open destination">
+            →
+          </button>
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function DestinationDetail({ destination, saved, similar, onToggleSaved, onOpen }: { destination: Destination; saved: boolean; similar: Destination[]; onToggleSaved: () => void; onOpen: (id: string) => void }) {
+  return (
+    <section className={panelClass("p-5")}> 
+      <div className="product-lab-display text-[32px] font-medium leading-tight text-[var(--lab-text)]">{destination.name}</div>
+      <div className="mt-1 text-sm text-[var(--lab-muted)]">{destination.country} / {destination.region}</div>
+      <p className="mt-5 text-sm leading-7 text-[var(--lab-muted)]">{destination.description}</p>
+      <div className="mt-4 text-sm text-[var(--lab-gold)]">✨ {destination.highlight}</div>
+      <div className="mt-5 grid grid-cols-3 gap-3 border-y border-[var(--lab-border)] py-4">
+        {[["Best time", destination.bestMonth], ["Category", destination.category], ["Region", destination.region]].map(([label, value]) => (
+          <div key={label}>
+            <div className="product-lab-mono text-[9px] uppercase tracking-[0.14em] text-[var(--lab-muted)]">{label}</div>
+            <div className="mt-1 text-sm text-[var(--lab-text)]">{value}</div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 flex flex-wrap gap-1.5">
+        {destination.tags.map((tag) => <span key={tag} className="rounded-full border border-[var(--lab-border)] px-2 py-1 text-[10px] text-[var(--lab-muted)]">{tag}</span>)}
+      </div>
+      <button className={buttonClass(saved, "mt-5 w-full")} onClick={onToggleSaved}>{saved ? "SAVED ✓" : "♡ SAVE DESTINATION"}</button>
+      <div className="mt-6">
+        <div className="product-lab-mono text-[10px] uppercase tracking-[0.16em] text-[var(--lab-gold)]">Similar destinations</div>
+        <div className="no-scrollbar mt-3 flex gap-2 overflow-x-auto pb-1">
+          {similar.map((item) => (
+            <button key={item.id} className="min-w-[132px] rounded-lg border border-[var(--lab-border)] bg-[var(--lab-surface)] p-3 text-left" onClick={() => onOpen(item.id)}>
+              <div className="text-sm font-semibold text-[var(--lab-text)]">{item.name}</div>
+              <div className="mt-1 text-xs text-[var(--lab-muted)]">{item.country}</div>
             </button>
           ))}
         </div>
-      </section>
-      <section className={panelClass("p-4 sm:p-5")}>
-        <PanelTitle icon={ReceiptText} title="Trip Notes" />
-        <div className="mt-4 rounded-lg border border-[#2A292E] bg-[#13131A] p-4">
-          <div className="text-2xl font-black">{selected.name}</div>
-          <div className="mt-1 text-sm font-semibold text-[#E8E4DC]/40">
-            {selected.country} / {selected.region}
-          </div>
-          <p className="mt-4 text-sm leading-6 text-[#E8E4DC]/40">{selected.note}</p>
-          <button className={buttonClass(selected.saved, "mt-5 w-full")} onClick={() => toggleSaved(selected.id)}>
-            <Save className="h-4 w-4" />
-            {selected.saved ? "Saved" : "Save destination"}
-          </button>
+      </div>
+    </section>
+  );
+}
+
+function TripPlanner({ saved, onOpen, onRemove }: { saved: Destination[]; onOpen: (id: string) => void; onRemove: (id: string) => void }) {
+  return (
+    <section className={panelClass("p-5")}> 
+      <div className="product-lab-display text-2xl font-medium text-[var(--lab-text)]">旅のプラン · Trip Planner</div>
+      <div className="mt-2 text-sm text-[var(--lab-muted)]">{saved.length} saved destinations</div>
+      {saved.length === 0 ? (
+        <p className="mt-6 text-sm leading-6 text-[var(--lab-muted)]">旅のプラン is empty. Save destinations using ♡ to start planning.</p>
+      ) : (
+        <div className="mt-5 grid gap-2 sm:grid-cols-2 xl:grid-cols-1">
+          {saved.map((destination) => (
+            <div key={destination.id} className="rounded-lg border border-[var(--lab-border)] bg-[var(--lab-surface)] p-3">
+              <button className="block w-full text-left" onClick={() => onOpen(destination.id)}>
+                <div className="font-semibold text-[var(--lab-text)]">{destination.name}</div>
+                <div className="text-xs text-[var(--lab-muted)]">{destination.country}</div>
+              </button>
+              <button className="mt-2 text-xs text-[var(--lab-red)]" onClick={() => onRemove(destination.id)}>× remove</button>
+            </div>
+          ))}
         </div>
-      </section>
-    </div>
+      )}
+      <p className="mt-5 text-sm leading-6 text-[var(--lab-muted)]">Save destinations using ♡ to build your trip list.</p>
+    </section>
   );
 }
 
@@ -2567,7 +2809,7 @@ function BinaryInspector({ checksum, entry }: { checksum: string; entry: { speci
 
   return (
     <div className="mt-3 grid gap-4 rounded-xl border border-[#22C55E]/15 bg-[#030705] p-4 product-lab-scanlines lg:grid-cols-[minmax(0,1.1fr)_minmax(220px,0.9fr)]">
-      <div className="product-lab-mono overflow-x-auto text-[10px] leading-6">
+      <div className="no-scrollbar product-lab-mono overflow-x-auto text-[10px] leading-6">
         <div className="grid min-w-[360px] grid-cols-[64px_1fr_72px] text-[var(--lab-muted)]">
           <span>OFFSET</span>
           <span>HEX</span>

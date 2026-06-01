@@ -366,6 +366,70 @@
     animation: productLabStatusPulse 0.65s ease-in-out infinite;
   }
 
+  .travel-hotspot {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .travel-hotspot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-120%);
+    background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.22), transparent);
+    transition: transform 420ms ease;
+  }
+
+  .travel-hotspot:hover::after {
+    transform: translateX(120%);
+  }
+
+  .travel-heart {
+    transition:
+      transform 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .travel-heart:active {
+    transform: scale(1.3);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hotspot-chips-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-x: auto;
+  }
+
+  .hotspot-chips-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hotspot-chips-wrapper {
+    position: relative;
+  }
+
+  .hotspot-chips-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 48px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, transparent, var(--lab-surface-2, #0C0C10));
+  }
+
   @keyframes productLabBootLine {
     from {
       opacity: 0;
