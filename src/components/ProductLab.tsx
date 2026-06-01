@@ -2302,16 +2302,21 @@ function VisionMinimapCanvas() {
 }
 
 function EmeraldDemo() {
+  const [loaded, setLoaded] = useState(false);
   const [slot, setSlot] = useState(1);
   const [entry, setEntry] = useState({
-    name: "Aster",
-    species: "Sample entry",
-    level: 42,
+    name: "メタグロス",
+    species: "#376 Metagross",
+    level: 100,
     nature: "Careful",
-    iv: 24,
-    ev: 120,
+    iv: 31,
+    ev: 252,
   });
   const [dirty, setDirty] = useState(false);
+  const [binaryOpen, setBinaryOpen] = useState(true);
+  const [flowOpen, setFlowOpen] = useState(true);
+  const [presetLog, setPresetLog] = useState(false);
+  const [exported, setExported] = useState(false);
 
   const stats = useMemo(() => {
     const base = entry.level + Math.round(entry.iv * 0.8) + Math.round(entry.ev / 16);
@@ -2323,87 +2328,273 @@ function EmeraldDemo() {
       special: base + 17,
     };
   }, [entry]);
+  const checksum = entry.name === "メタグロス" ? "0x00A4" : entry.level >= 100 ? "0x0063" : "0x0042";
+  const flowSteps = [
+    ["セーブを開く", "Open demo save", loaded],
+    ["ポケモンを編集", "Edit party Pokémon", dirty],
+    ["変更内容を確認", "Review changes", dirty || presetLog],
+    ["ボックスにプリセット", "Create preset in box", presetLog],
+    ["バッグを編集", "Edit bag item", presetLog],
+    ["検証OK確認", "Confirm validation", !dirty && loaded],
+    ["書き出す", "Export save", exported],
+  ];
 
   function patchEntry(patch: Partial<typeof entry>) {
     setEntry((current) => ({ ...current, ...patch }));
     setDirty(true);
+    setExported(false);
+  }
+
+  function createPreset() {
+    setEntry({ name: "メタグロス", species: "#376 Metagross", level: 100, nature: "Careful", iv: 31, ev: 252 });
+    setDirty(false);
+    setPresetLog(true);
+    setExported(false);
+    window.setTimeout(() => setPresetLog(false), 4200);
+  }
+
+  if (!loaded) {
+    return (
+      <section className={panelClass("p-6 sm:p-8")}>
+        <div className="product-lab-mono text-[10px] uppercase tracking-[0.22em] text-[var(--lab-gold)]">
+          Emerald Studio
+        </div>
+        <h2 className="product-lab-display mt-3 text-4xl font-medium">ポケモン エメラルド セーブエディタ</h2>
+        <p className="mt-4 max-w-2xl text-sm leading-7 text-[var(--lab-muted)]">
+          Gen 3 binary save editor for Pokémon Emerald (Japanese). Parses encrypted Pokémon substructures,
+          recalculates checksums, and exports clean valid .sav files.
+        </p>
+        <div className="mt-7 flex flex-wrap gap-3">
+          <button className={buttonClass(true, "px-5")} onClick={() => setLoaded(true)}>
+            demo_clean.sav を開く
+          </button>
+          <button className={buttonClass(false, "px-5")} onClick={() => setLoaded(true)}>
+            ファイルを選択...
+          </button>
+        </div>
+        <div className="product-lab-mono mt-6 text-xs leading-5 text-[var(--lab-muted)]">
+          元のセーブファイルは上書きされません
+          <br />
+          Original save is never overwritten
+        </div>
+      </section>
+    );
   }
 
   return (
     <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_360px]">
-      <section className={panelClass("p-4 sm:p-5")}>
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <PanelTitle icon={Database} title="Party Slot Editor" />
-          <div className="flex gap-1">
+      <div className="space-y-5">
+        <section className={panelClass("p-4 sm:p-5")}>
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <PanelTitle icon={Database} title="Party Slot Editor" />
+            <div className="product-lab-mono text-right text-[10px] leading-5 text-[var(--lab-muted)]">
+              元のセーブファイルは上書きされません
+              <br />
+              Original save is never overwritten
+            </div>
+          </div>
+
+          <div className="mt-5 flex gap-1">
             {[1, 2, 3, 4, 5, 6].map((item) => (
               <button key={item} className={buttonClass(slot === item, "h-10 w-10 px-0")} onClick={() => setSlot(item)}>
                 {item}
               </button>
             ))}
           </div>
-        </div>
-        <div className="mt-5 grid gap-4 md:grid-cols-2">
-          <label>
-            <span className="text-xs font-black uppercase tracking-[0.14em] text-[#E8E4DC]/40">Nickname</span>
-            <input className={inputClass("mt-2 w-full")} value={entry.name} onChange={(event) => patchEntry({ name: event.target.value })} />
-          </label>
-          <label>
-            <span className="text-xs font-black uppercase tracking-[0.14em] text-[#E8E4DC]/40">Species field</span>
-            <input className={inputClass("mt-2 w-full")} value={entry.species} onChange={(event) => patchEntry({ species: event.target.value })} />
-          </label>
-          <label>
-            <span className="text-xs font-black uppercase tracking-[0.14em] text-[#E8E4DC]/40">Level</span>
-            <input className={inputClass("mt-2 w-full")} type="number" min="1" max="100" value={entry.level} onChange={(event) => patchEntry({ level: Number(event.target.value) })} />
-          </label>
-          <label>
-            <span className="text-xs font-black uppercase tracking-[0.14em] text-[#E8E4DC]/40">Nature placeholder</span>
-            <select className={inputClass("mt-2 w-full")} value={entry.nature} onChange={(event) => patchEntry({ nature: event.target.value })}>
-              {["Careful", "Bold", "Calm", "Jolly"].map((item) => (
-                <option key={item}>{item}</option>
-              ))}
-            </select>
-          </label>
-          <label>
-            <span className="text-xs font-black uppercase tracking-[0.14em] text-[#E8E4DC]/40">IV spread</span>
-            <input className="mt-3 w-full accent-[#C9A84C]" type="range" min="0" max="31" value={entry.iv} onChange={(event) => patchEntry({ iv: Number(event.target.value) })} />
-          </label>
-          <label>
-            <span className="text-xs font-black uppercase tracking-[0.14em] text-[#E8E4DC]/40">EV spread</span>
-            <input className="mt-3 w-full accent-[#C9A84C]" type="range" min="0" max="252" value={entry.ev} onChange={(event) => patchEntry({ ev: Number(event.target.value) })} />
-          </label>
-        </div>
-      </section>
-      <section className={panelClass("p-4 sm:p-5")}>
-        <PanelTitle icon={Check} title="Checksum / Stats" />
-        <div className="mt-4 rounded-lg border border-[#2A292E] bg-[#13131A] p-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="text-xl font-black">Slot {slot}: {entry.name}</div>
-              <div className="text-sm font-semibold text-[#E8E4DC]/40">Level {entry.level} / {entry.nature}</div>
+
+          <div className="mt-5 grid gap-4 md:grid-cols-2">
+            <label>
+              <span className="text-xs font-black uppercase tracking-[0.14em] text-[#E8E4DC]/40">ポケモン名</span>
+              <input className={inputClass("mt-2 w-full")} value={entry.name} onChange={(event) => patchEntry({ name: event.target.value })} />
+            </label>
+            <label>
+              <span className="text-xs font-black uppercase tracking-[0.14em] text-[#E8E4DC]/40">種族</span>
+              <input className={inputClass("mt-2 w-full")} value={entry.species} onChange={(event) => patchEntry({ species: event.target.value })} />
+            </label>
+            <label>
+              <span className="text-xs font-black uppercase tracking-[0.14em] text-[#E8E4DC]/40">レベル</span>
+              <input className={inputClass("mt-2 w-full")} type="number" min="1" max="100" value={entry.level} onChange={(event) => patchEntry({ level: Number(event.target.value) })} />
+            </label>
+            <label>
+              <span className="text-xs font-black uppercase tracking-[0.14em] text-[#E8E4DC]/40">性格</span>
+              <select className={inputClass("mt-2 w-full")} value={entry.nature} onChange={(event) => patchEntry({ nature: event.target.value })}>
+                {["Careful", "Bold", "Calm", "Jolly"].map((item) => (
+                  <option key={item}>{item}</option>
+                ))}
+              </select>
+            </label>
+            <label>
+              <span className="text-xs font-black uppercase tracking-[0.14em] text-[#E8E4DC]/40">IV spread</span>
+              <input className="mt-3 w-full accent-[#C9A84C]" type="range" min="0" max="31" value={entry.iv} onChange={(event) => patchEntry({ iv: Number(event.target.value) })} />
+            </label>
+            <label>
+              <span className="text-xs font-black uppercase tracking-[0.14em] text-[#E8E4DC]/40">EV spread</span>
+              <input className="mt-3 w-full accent-[#C9A84C]" type="range" min="0" max="252" value={entry.ev} onChange={(event) => patchEntry({ ev: Number(event.target.value) })} />
+            </label>
+          </div>
+
+          <button
+            className="product-lab-mono mt-5 flex w-full items-center justify-between rounded-lg border border-[var(--lab-border)] bg-[var(--lab-surface)] px-3 py-3 text-left text-xs text-[var(--lab-gold)]"
+            onClick={() => setBinaryOpen((current) => !current)}
+          >
+            <span>バイナリ解析 · BINARY PARSE</span>
+            <span>{binaryOpen ? "▴" : "▾"}</span>
+          </button>
+          {binaryOpen ? <BinaryInspector checksum={checksum} entry={entry} /> : null}
+        </section>
+
+        {presetLog ? (
+          <section className={panelClass("border-[#2EA043]/30 p-4 sm:p-5")}>
+            <div className="product-lab-display text-2xl font-medium text-[var(--lab-text)]">メタグロス を作成しました</div>
+            <div className="product-lab-mono mt-4 grid gap-2 text-xs leading-5 text-[var(--lab-muted)]">
+              <div>種族: #376 メタグロス</div>
+              <div>チェックサム: 0x00A4 ✓</div>
+              <div>能力: クリアボディ / Clear Body</div>
+              <div>タイプ: はがね / エスパー</div>
+              <div>技: コメットパンチ / アイアンデフェンス / サイコキネシス / じしん</div>
+              <div>IVs: 31 / 31 / 31 / 31 / 31 / 31 (6V)</div>
+              <div>EVs: 252 / 0 / 0 / 252 / 0 / 4 (508 / 510)</div>
             </div>
-            <span className={`rounded-full px-3 py-1 text-xs font-black ${dirty ? "bg-[#C9A84C]/15 text-[#C0392B]" : "bg-[#2EA043]/15 text-[#2EA043]"}`}>
-              {dirty ? "dirty" : "recalculated"}
-            </span>
-          </div>
-          <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
-            {Object.entries(stats).map(([key, value]) => (
-              <div key={key} className="rounded-md bg-[#1A1A24] p-2 font-bold">
-                {key.toUpperCase()} {value}
+          </section>
+        ) : null}
+      </div>
+
+      <div className="space-y-5">
+        <section className={panelClass("p-4 sm:p-5")}>
+          <button
+            className="product-lab-mono flex w-full items-center justify-between text-left text-[10px] uppercase tracking-[0.2em] text-[var(--lab-gold)]"
+            onClick={() => setFlowOpen((current) => !current)}
+          >
+            <span>デモ手順 · Demo Flow</span>
+            <span>{flowOpen ? "▴" : "▾"}</span>
+          </button>
+          {flowOpen ? (
+            <div className="mt-4 space-y-3">
+              {flowSteps.map(([jp, en, done]) => (
+                <div key={String(jp)} className="flex items-center gap-3 text-sm">
+                  <span className={`grid h-5 w-5 place-items-center rounded border ${done ? "border-[#2EA043] bg-[#2EA043]/15 text-[#2EA043]" : "border-[var(--lab-border)] text-[var(--lab-muted)]"}`}>
+                    {done ? "✓" : ""}
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-[var(--lab-text)]">{jp}</span>
+                    <span className="product-lab-mono block text-[10px] text-[var(--lab-muted)]">{en}</span>
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : null}
+        </section>
+
+        <section className={panelClass("p-4 sm:p-5")}>
+          <PanelTitle icon={Check} title="Checksum / Stats" />
+          <div className="mt-4 rounded-lg border border-[var(--lab-border)] bg-[var(--lab-surface)] p-4">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <div className="text-xl font-black">Slot {slot}: {entry.name}</div>
+                <div className="text-sm font-semibold text-[#E8E4DC]/40">Level {entry.level} / {entry.nature}</div>
               </div>
-            ))}
+              <span className={`rounded-full px-3 py-1 text-xs font-black ${dirty ? "bg-[#C9A84C]/15 text-[#C0392B]" : "bg-[#2EA043]/15 text-[#2EA043]"}`}>
+                {dirty ? "変更内容" : `検証OK · チェックサム ${checksum}`}
+              </span>
+            </div>
+            <div className="mt-4 grid grid-cols-2 gap-2 text-sm">
+              {Object.entries(stats).map(([key, value]) => (
+                <div key={key} className="rounded-md bg-[#1A1A24] p-2 font-bold">
+                  {key.toUpperCase()} {value}
+                </div>
+              ))}
+            </div>
+            <div className="product-lab-mono mt-4 rounded-lg border border-[#2EA043]/25 bg-[#2EA043]/8 p-3 text-xs leading-6 text-[var(--lab-muted)]">
+              <div className="text-[#2EA043]">CHECKSUM VERIFICATION</div>
+              <div>Computed: {checksum}</div>
+              <div>Stored: {checksum}</div>
+              <div>Result: 一致 · MATCH ✓</div>
+              <div>Save sections: 14/14 valid</div>
+              <div>Party stats: recalculated ✓</div>
+              <div>Substructure: decrypted ✓</div>
+            </div>
+            <div className="mt-4 grid gap-2">
+              <button className={buttonClass(false)} onClick={createPreset}>
+                <RotateCcw className="h-4 w-4" />
+                メタグロス / Metagross preset
+              </button>
+              <button className={buttonClass(true)} onClick={() => setDirty(false)}>
+                <Check className="h-4 w-4" />
+                Recalculate checksum
+              </button>
+              <button className={buttonClass(false)} onClick={() => setExported(true)}>
+                編集済みセーブを書き出す → EXPORT
+              </button>
+            </div>
+            {exported ? (
+              <div className="product-lab-mono mt-4 rounded-lg border border-[#2EA043]/25 bg-[#2EA043]/8 p-3 text-xs text-[#2EA043]">
+                保存しました · SAVED
+                <br />
+                demo_edited_20260601_1200.sav
+              </div>
+            ) : null}
           </div>
-          <div className="mt-4 grid gap-2">
-            <button className={buttonClass(false)} onClick={() => { patchEntry({ name: "Preset A", species: "Clean sample", level: 55, nature: "Jolly", iv: 31, ev: 252 }); }}>
-              <RotateCcw className="h-4 w-4" />
-              Load preset
-            </button>
-            <button className={buttonClass(true)} onClick={() => setDirty(false)}>
-              <Check className="h-4 w-4" />
-              Recalculate checksum
-            </button>
+        </section>
+
+        <section className={panelClass("p-4 sm:p-5")}>
+          <div className="product-lab-mono text-[10px] uppercase tracking-[0.2em] text-[var(--lab-gold)]">
+            このアプリについて · About
           </div>
+          <p className="mt-3 text-xs leading-6 text-[var(--lab-muted)]">
+            Emerald Studio parses the binary structure of Japanese Pokémon Emerald save files. Each ポケモン is stored
+            as an 80-byte encrypted substructure across 4 shuffled sections, decoded using the personality value as the
+            XOR key.
+          </p>
+          <p className="mt-3 text-xs leading-6 text-[var(--lab-muted)]">
+            Built as a technical exercise in binary format parsing, Japanese locale support, and safe file export. The
+            original save file is never modified.
+          </p>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+function BinaryInspector({ checksum, entry }: { checksum: string; entry: { species: string; level: number } }) {
+  const rows = [
+    ["0x00", "A3 2F 00 00 B4 1E 00 00", "........"],
+    ["0x08", "00 00 00 00 5A 00 00 00", "....Z..."],
+    ["0x10", "FF FF FF FF 63 00 00 00", "....c..."],
+    ["0x18", "1F 00 1F 00 1F 00 1F 00", "........"],
+    ["0x20", "FF 00 FF 00 FF 00 FF 00", "........"],
+    ["0x28", "00 00 00 00 00 00 00 00", "........"],
+  ];
+
+  return (
+    <div className="mt-3 grid gap-4 rounded-xl border border-[#22C55E]/15 bg-[#030705] p-4 product-lab-scanlines lg:grid-cols-[minmax(0,1.1fr)_minmax(220px,0.9fr)]">
+      <div className="product-lab-mono overflow-x-auto text-[10px] leading-6">
+        <div className="grid min-w-[360px] grid-cols-[64px_1fr_72px] text-[var(--lab-muted)]">
+          <span>OFFSET</span>
+          <span>HEX</span>
+          <span>ASCII</span>
         </div>
-      </section>
+        {rows.map(([offset, hex, ascii]) => (
+          <div key={offset} className="grid min-w-[360px] grid-cols-[64px_1fr_72px]">
+            <span className="text-[var(--lab-muted)]">{offset}</span>
+            <span className="text-[#22C55E]">{hex}</span>
+            <span className="text-[var(--lab-muted)]">{ascii}</span>
+          </div>
+        ))}
+      </div>
+      <div className="product-lab-mono space-y-3 text-[11px] leading-5">
+        {[
+          ["PERSONALITY", "0x0000 → nature, gender, ability"],
+          ["OT_ID", "0x0004 → trainer ID"],
+          ["CHECKSUM", `0x001C → ${checksum} ✓ valid`],
+          ["SPECIES", `0x0030 → ${entry.species}`],
+          ["LEVEL", `0x0054 → ${entry.level}`],
+        ].map(([label, value]) => (
+          <div key={label}>
+            <div className="text-[var(--lab-gold)]">{label}</div>
+            <div className="text-[var(--lab-muted)]">{value}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
