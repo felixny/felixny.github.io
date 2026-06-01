@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Felix Nampanya — Software Engineer · Evenmint household expense splitting";
+  "Felix Product Lab by Felix Nampanya";
 
 export const size = {
   width: 1200,
@@ -21,14 +21,14 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: 72,
-          background: "linear-gradient(145deg, #0f172a 0%, #1e40af 42%, #38bdf8 100%)",
-          color: "#f8fafc",
+          background: "#12100e",
+          color: "#f7f0e4",
           fontFamily:
             'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
         }}
       >
-        <div style={{ fontSize: 56, fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.15 }}>
-          Felix Nampanya
+        <div style={{ fontSize: 56, fontWeight: 800, lineHeight: 1.15 }}>
+          Felix Product Lab
         </div>
         <div
           style={{
@@ -40,7 +40,7 @@ export default function OpenGraphImage() {
             lineHeight: 1.35,
           }}
         >
-          Software engineer · Android, web & backend
+          Felix Nampanya · Software Engineer
         </div>
         <div
           style={{
@@ -49,12 +49,12 @@ export default function OpenGraphImage() {
             fontWeight: 500,
             opacity: 0.88,
             paddingTop: 28,
-            borderTop: "1px solid rgba(248,250,252,0.35)",
+            borderTop: "1px solid rgba(247,240,228,0.35)",
             maxWidth: 920,
             lineHeight: 1.4,
           }}
         >
-          Evenmint — household expense splitting & settlement without spreadsheet chaos
+          Working micro-demos for product software, Android systems, automation tooling, and data-heavy UI.
         </div>
       </div>
     ),

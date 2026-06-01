@@ -14,11 +14,11 @@ const siteUrl = "https://felixny.github.io";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Felix Nampanya · Software Engineer",
+    default: "Felix Product Lab · Felix Nampanya",
     template: "%s · Felix Nampanya",
   },
   description:
-    "Boston-based software engineer building Android, web, and backend systems—including Evenmint for household expense splitting and settlement.",
+    "An app-like portfolio experiment where Felix Nampanya's product work is presented as working React micro-demos.",
   keywords: [
     "Felix Nampanya",
     "software engineer",
@@ -27,6 +27,8 @@ export const metadata: Metadata = {
     "React",
     "Next.js",
     "Evenmint",
+    "PulsePoint",
+    "Product Lab",
     "Boston",
   ],
   authors: [{ name: "Felix Nampanya", url: siteUrl }],
@@ -35,15 +37,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "Felix Nampanya",
-    title: "Felix Nampanya · Software Engineer",
+    title: "Felix Product Lab · Felix Nampanya",
     description:
-      "Boston-based software engineer building Android, web, and backend systems—including Evenmint for household expense splitting.",
+      "Working micro-demos for product software, Android systems, automation tooling, and binary data UI.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Felix Nampanya · Software Engineer",
+    title: "Felix Product Lab · Felix Nampanya",
     description:
-      "Android, web & backend—including Evenmint (household expense splitting). Based in Boston.",
+      "An app-like portfolio experiment built around interactive project demos.",
   },
   icons: {
     icon: "/favicon.ico",
