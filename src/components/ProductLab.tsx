@@ -28,6 +28,8 @@ type LabNote =
 type SplitMethod = "equal" | "custom";
 type MonthStatus = "paid" | "partial" | "unpaid";
 
+const EVENMINT_LIVE_URL = "https://evenmint.vercel.app/";
+
 type Person = {
   id: string;
   name: string;
@@ -859,9 +861,15 @@ function LabHome({ onOpenLab }: { onOpenLab: (project: ProjectId) => void }) {
                 Open Evenmint Lab
                 <ChevronRight className="h-4 w-4" />
               </button>
-              <span className="product-lab-mono inline-flex min-h-10 items-center rounded-md border border-[var(--lab-border)] px-3 text-[11px] uppercase tracking-[0.1em] text-[var(--lab-muted)]">
-                live demo
-              </span>
+              <a
+                className={buttonClass(false, "px-5")}
+                href={EVENMINT_LIVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live site
+                <ChevronRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
 
